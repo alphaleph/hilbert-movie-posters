@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MoviePostersAPI.Entities 
+namespace MoviePostersAPI.Entities
 {
-    public class Movie 
+    public class Review
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,10 +13,16 @@ namespace MoviePostersAPI.Entities
         [MaxLength(100)]
         public string Name { get; set; }
 
-        [Required]
-        public int Year { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public DateTime PostedDate { get; set; }
 
         [Required]
-        public ICollection<MoviePoster> MoviePosters { get; set; }
+        public int Rating { get; set; }
+
+        [MaxLength(255)]
+        public string Comment { get; set; }
+
+        [Required]
+        public MoviePoster MoviePoster { get; set; }
     }
 }
