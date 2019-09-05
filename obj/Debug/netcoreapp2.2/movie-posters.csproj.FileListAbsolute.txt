@@ -1,0 +1,14 @@
+C:\Users\Alpha\Documents\Programming\movie-posters\bin\Debug\netcoreapp2.2\movie-posters.deps.json
+C:\Users\Alpha\Documents\Programming\movie-posters\bin\Debug\netcoreapp2.2\movie-posters.runtimeconfig.json
+C:\Users\Alpha\Documents\Programming\movie-posters\bin\Debug\netcoreapp2.2\movie-posters.runtimeconfig.dev.json
+C:\Users\Alpha\Documents\Programming\movie-posters\bin\Debug\netcoreapp2.2\movie-posters.dll
+C:\Users\Alpha\Documents\Programming\movie-posters\bin\Debug\netcoreapp2.2\movie-posters.pdb
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.csprojAssemblyReference.cache
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.csproj.CoreCompileInputs.cache
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.RazorAssemblyInfo.cache
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.RazorAssemblyInfo.cs
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.AssemblyInfoInputs.cache
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.AssemblyInfo.cs
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.RazorTargetAssemblyInfo.cache
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.dll
+C:\Users\Alpha\Documents\Programming\movie-posters\obj\Debug\netcoreapp2.2\movie-posters.pdb
