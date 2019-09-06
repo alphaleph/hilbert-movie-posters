@@ -1746,11 +1746,11 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/2.1.0": {
+      "Microsoft.EntityFrameworkCore.SqlServer/2.2.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.0",
-          "System.Data.SqlClient": "4.5.0"
+          "Microsoft.EntityFrameworkCore.Relational": "2.2.0",
+          "System.Data.SqlClient": "4.6.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
@@ -5965,16 +5965,16 @@
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/2.1.0": {
-      "sha512": "ehi0GKln9aZA+siwUJxVRjrwqQ41LpjX4N8+CcsKhTPqMLLEyu/7gKANPPr7c96QDvh1M14riRifznBsXnxgGA==",
+    "Microsoft.EntityFrameworkCore.SqlServer/2.2.0": {
+      "sha512": "rCGBF6Hab9633Dh2xtiAcJnDxf2CjaBrGyoagoCoYHH5Ftbdw5zX/e9ABgif5ngzh7DsrBcgxK/3gHBZ2n+TGA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/2.1.0",
+      "path": "microsoft.entityframeworkcore.sqlserver/2.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.2.1.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.2.2.0.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
@@ -12069,7 +12069,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 2.1.0",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -12125,7 +12125,7 @@
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[2.1.0, )"
+            "version": "[2.2.0, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
@@ -12141,16 +12141,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: Microsoft.EntityFrameworkCore.SqlServer from 2.2.0 to 2.1.0. Reference the package directly from the project to select a different version. \r\n movie-posters -> Microsoft.AspNetCore.App 2.2.0 -> Microsoft.EntityFrameworkCore.SqlServer (>= 2.2.0 && < 2.3.0) \r\n movie-posters -> Microsoft.EntityFrameworkCore.SqlServer (>= 2.1.0)",
-      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    }
-  ]
+  }
 }

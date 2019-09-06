@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace MoviePostersAPI.Entities
 {
@@ -16,7 +17,6 @@ namespace MoviePostersAPI.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime PostedDate { get; set; }
 
-        [Required]
         public int Rating { get; set; }
 
         [MaxLength(255)]

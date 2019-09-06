@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace MoviePostersAPI.Entities 
 {
@@ -10,25 +11,21 @@ namespace MoviePostersAPI.Entities
         public int Id { get; set; }
 
         [Required]
-        public string ImageUrl { get; set; }
+        public PosterImage PosterImage { get; set; }
 
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
 
-        [Required]
         public int Year { get; set; }
 
         [Required]
         public string Artist { get; set; }
 
-        [Required]
-        public int Rating { get; set; }
+        public int Rating { get; set; } = 0;
 
-        [Required]
-        public int RatingCount { get; set; }
+        public int RatingCount { get; set; } = 0;
 
-        [Required]
         public Movie Movie { get; set; }
 
         public ICollection<Review> Reviews { get; set; }

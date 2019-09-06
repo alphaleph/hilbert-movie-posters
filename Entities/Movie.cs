@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace MoviePostersAPI.Entities 
 {
@@ -13,7 +14,6 @@ namespace MoviePostersAPI.Entities
         [MaxLength(100)]
         public string Name { get; set; }
 
-        [Required]
         public int Year { get; set; }
 
         [Required]
