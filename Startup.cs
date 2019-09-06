@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using MoviePostersAPI.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace movie_posters
 {
@@ -15,15 +17,21 @@ namespace movie_posters
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = "Server=192.168.99.100,1433;Database=MoviePostersDb;User Id=sa;Password=Passw0rd1!";
+            services.AddDbContext<MoviePostersDbContext>( o => o.UseSqlServer(connectionString) );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, MoviePostersDbContext moviePostersDbContext)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseStaticFiles();
+
+            MoviePostersDbContextExtensions.CreateSeedData(moviePostersDbContext);
 
             app.Run(async (context) =>
             {

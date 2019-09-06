@@ -8,8 +8,7 @@ namespace MoviePostersAPI.Services
 
         public DbSet<MoviePoster> MoviePosters { get; set; }
 
-        public MoviePostersDbContext (
-            DbContextOptions<MoviePostersDbContext> options)
+        public MoviePostersDbContext (DbContextOptions<MoviePostersDbContext> options)
             : base(options)
         {
             Database.EnsureCreated();
