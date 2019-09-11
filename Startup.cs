@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.DependencyInjection;
 using MoviePostersAPI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -39,8 +40,14 @@ namespace movie_posters
 
             MoviePostersDbContextExtensions.CreateSeedData(moviePostersDbContext);
 
+            var provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".webmanifest"] = "application/manifest+json";
+
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions 
+            {
+                ContentTypeProvider = provider
+            });
             app.UseCookiePolicy();
             app.UseMvcWithDefaultRoute();
 
