@@ -75,10 +75,13 @@ npm install
 ## Usage
 ```
 #run db container, syntax is for Docker Toolbox
-docker container start <db-name>
+docker container start movie-posters-db
 
 #run webserver at localhost:5000 and :5001
 dotnet run
+
+#stop db container when finished
+docker container stop movie-posters-db
 
 ```
 
@@ -105,6 +108,6 @@ dotnet run
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License.
 
 All images are intended for non-commercial entertainment and education use only - reviews, fan art, blogs, forums, etc. MoviePosterDB is not endorsed, sponsored or affiliated with any movie studio. All copyrights, trademarks, and logos are owned by their respective owners. This site is for non-profit/educational use only. Using images from this project to make and/or sell reprinted movie posters is strictly forbidden.
