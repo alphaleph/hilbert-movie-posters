@@ -101,10 +101,10 @@ docker container stop movie-posters-db
 
 ### Dev Environment
 - [x] Fundamental stack set-up
-- [ ] Set up source maps + HMR
+- [x] Set up source maps + HMR
 - [ ] Set up BDD/TDD: Cucumber + Selenium + Jest
 - [ ] Set up SCSS env (minifying, autoprefixer)
-
+- [ ] Migrate to Typescript
 
 ## License
 
