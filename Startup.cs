@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MoviePostersAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 
 namespace movie_posters
 {
@@ -31,6 +32,10 @@ namespace movie_posters
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
+                    HotModuleReplacement = true
+                });
             }
             else
             {

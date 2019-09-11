@@ -16,3 +16,5 @@ ReactDOM.render(
     <App />,
     document.querySelector('#container')
 );
+
+module.hot.accept();

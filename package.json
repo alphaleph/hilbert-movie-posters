@@ -22,6 +22,7 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
+    "aspnet-webpack": "^3.0.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "eslint": "^6.3.0",
@@ -29,7 +30,9 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8"
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-middleware": "^3.7.1",
+    "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {}
 }
