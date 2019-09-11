@@ -1,0 +1,29 @@
+{
+  "name": "movie-posters",
+  "version": "1.0.0",
+  "description": "A movie posters website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wbp": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaua0927/movie-posters.git"
+  },
+  "author": "Alpha Chau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaua0927/movie-posters/issues"
+  },
+  "homepage": "https://github.com/chaua0927/movie-posters#readme",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {}
+}
