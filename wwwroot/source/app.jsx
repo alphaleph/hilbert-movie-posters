@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MoviePosterList from './components/movie-poster-list.jsx';
 
-class App extends React.Component {
-    render() {
-        return (
+function App(props) {
+
+    return (
             <div>
                 <MoviePosterList url = '/api/movieposters' />
             </div>
-        );
-    }
+    );
 }
 
 ReactDOM.render(
