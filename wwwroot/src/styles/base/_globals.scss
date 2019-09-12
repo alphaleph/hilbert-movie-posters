@@ -1,0 +1,28 @@
+/*
+########################
+Base Theme Colors
+########################
+*/
+
+$background-color--primary:#515E5D;
+$background-color--secondary: #577590;
+$background-color--tertiary: #DCDDA7;
+$background-color__interactive--primary: #EAD94C;
+$background-color__interactive--secondary: #E76846;
+$font-color--light: #F7F7F7;
+$font-color--dark: #1A1A1A;
+
+/*
+########################
+Breakpoints
+########################
+*/
+
+//Small tablets (portrait) and large smartphones (landscape)
+$screen-sm-min: 576px;
+//Small tablets (landscape)
+$screen-md-min: 768px;
+//Regular desktops and laptops
+$screen-lg-min: 992px;
+//Large desktops and laptops
+$screen-xl-min: 1200px;
