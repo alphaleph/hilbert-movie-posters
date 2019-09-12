@@ -14,15 +14,19 @@ $font-color--dark: #1A1A1A;
 
 /*
 ########################
-Breakpoints
+Font
 ########################
 */
 
-//Small tablets (portrait) and large smartphones (landscape)
-$screen-sm-min: 576px;
-//Small tablets (landscape)
-$screen-md-min: 768px;
-//Regular desktops and laptops
-$screen-lg-min: 992px;
-//Large desktops and laptops
-$screen-xl-min: 1200px;
+html {
+    line-height: 1.5;
+}
+
+p, a, span {
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
