@@ -1,0 +1,60 @@
+@import './mixins';
+
+/*
+########################
+Initial Layout
+########################
+*/
+
+.initial-flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    @extend .initial-flex;
+}
+
+#app > * {
+    flex: 1 100%;
+}
+
+/*
+########################
+Breakpoints
+########################
+*/
+
+//Initial delayout is Mobile First (aka xs): Small tablets (portrait) and large smartphones (landscape)
+//For Small tablets (landscape)
+$screen-sm-min: 576px;
+//For Regular desktops and laptops
+$screen-md-min: 768px;
+//For Large desktops and laptops
+$screen-lg-min: 992px;
+//For Extra large screens
+$screen-xl-min: 1200px;
+
+
+
+@include breakpoint($screen-sm-min) {
+    #app > aside { flex: 1 auto; }
+}
+
+@include breakpoint($screen-md-min) {
+    #app > main { flex: 2 0px; }
+    .aside-left { order: 1; }
+    #app > main { order: 2; }
+    .aside-right { order: 3; }
+    #app > footer { order: 4; }
+}
+
+// @include breakpoint($screen-lg-min) {
+
+// }
+
+// @include breakpoint($screen-xl-min) {
+
+// }

@@ -1,0 +1,32 @@
+@import '../base/layout';
+
+nav {
+    @extend .initial-flex;
+    margin: auto;
+
+    ul {
+        @extend .initial-flex;
+        margin: auto;
+        flex: 1 100%;
+    }
+
+    .left-group {
+        justify-content: flex-start;
+    }
+
+    .right-group {
+        justify-content: flex-end;
+    }
+}
+
+@include breakpoint($screen-sm-min) {
+    nav {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        ul {
+            flex: 1 auto;
+            flex-flow: row nowrap;
+        }
+    }
+}

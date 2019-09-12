@@ -20,6 +20,11 @@ Font
 
 html {
     line-height: 1.5;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 p, a, span {

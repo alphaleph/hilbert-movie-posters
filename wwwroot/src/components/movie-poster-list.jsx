@@ -17,13 +17,13 @@ function MoviePosterList(props) {
     });
 
     return (
-        <div>
+        <ul>
             {
                 moviePosters.map(moviePoster => (
                     <MoviePoster key={moviePoster.id} moviePosterName={moviePoster.name} moviePosterYear={moviePoster.year} />
                 ))
             }
-        </div>
+        </ul>
     );
 };
 

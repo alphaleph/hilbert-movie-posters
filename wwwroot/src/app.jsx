@@ -1,22 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MoviePosterList from './components/movie-poster-list.jsx';
+import Home from './components/home.jsx';
+import NavBar from './components/navbar.jsx';
 import './styles/style.scss';
 
 function App(props) {
     return (
-            <div>
-                <h1>Movie Posters API</h1>
-                <MoviePosterList url='/api/movieposters'/>
-                <h1 className="red">Hello world! Font change here too!</h1>
-                <p>Font should change!</p>
-            </div>
+        <div id="app">
+            <NavBar/>
+            <Home/>
+            <aside className="aside-left">
+                <p>Left Aside</p>
+            </aside>
+            <aside className="aside-right">
+                <p>Right Aside</p>
+            </aside>
+            <footer>
+                <p>Site Map</p>
+            </footer>
+        </div>
     );
 }
 
 ReactDOM.render(
     <App />,
-    document.querySelector('#app')
+    document.querySelector('#container')
 );
 
 module.hot.accept();
