@@ -35,12 +35,19 @@ module.exports = {
                 loader: [
                     isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
+                    'postcss-loader',
                     {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: isDevelopment
                         }
                     }
+                ]
+            },
+            {
+                test: /\.(png|svg|jpe?g|gif)$/,
+                use: [
+                    'file-loader'
                 ]
             }
         ]
