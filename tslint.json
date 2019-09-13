@@ -1,4 +1,6 @@
 {
-    "extends": ["tslint-recommended", "tslint-react"],
-    "rules": {}
+    "extends": ["tslint:recommended", "tslint-react"],
+    "rules": {
+        "quotemark": [true, "single", "jsx-single", "avoid-escape", "avoid-template"]
+    }
 }

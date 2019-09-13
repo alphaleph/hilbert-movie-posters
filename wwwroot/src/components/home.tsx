@@ -1,8 +1,8 @@
 import React from 'react';
-import MoviePosterList from './movie-poster-list';
 import '../styles/components/home.scss';
+import { MoviePosterList } from './movie-poster-list';
 
-function Home() {
+export function Home() {
     return (
         <main>
             <h1>Movie Posters API</h1>
@@ -12,5 +12,3 @@ function Home() {
         </main>
     );
 }
-
-export default Home;

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import MoviePoster from './movie-poster';
-import ListEmpty from './list-empty'
+import React, { useEffect, useState } from 'react';
+import { ListEmpty } from './list-empty';
+import { MoviePoster } from './movie-poster';
 
-export interface MoviePosterListProps {
-    getMoviePostersUrl: string
+export interface IMoviePosterListProps {
+    getMoviePostersUrl: string;
 }
 
-function MoviePosterList(props: MoviePosterListProps) {
+export function MoviePosterList(props: IMoviePosterListProps) {
     const [moviePosters, setMoviePosters] = useState([]);
-    
-    const isListEmpty: boolean  = !moviePosters.length
+
+    const isListEmpty: boolean  = !moviePosters.length;
 
     function loadMoviePosters(url: string) {
         fetch(url)
@@ -26,10 +26,9 @@ function MoviePosterList(props: MoviePosterListProps) {
     return (
         <ul>
             {
-                isListEmpty 
-                    ? <ListEmpty/> 
-                    : moviePosters.map(moviePoster => (
-                        <MoviePoster key={moviePoster.id} 
+                isListEmpty ? <ListEmpty/> : moviePosters.map(moviePoster => (
+                        <MoviePoster 
+                            key={moviePoster.id} 
                             moviePosterName={moviePoster.name} 
                             moviePosterYear={moviePoster.year} 
                         />
@@ -37,6 +36,4 @@ function MoviePosterList(props: MoviePosterListProps) {
             }
         </ul>
     );
-};
-
-export default MoviePosterList;
+}

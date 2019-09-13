@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './components/home';
-import NavBar from './components/navbar';
+import { Home } from './components/home';
+import { NavBar } from './components/navbar';
 import './styles/style.scss';
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
 
 ReactDOM.render(
     <App />,
-    document.querySelector('#container') as HTMLElement
+    document.querySelector('#container') as HTMLElement,
 );
 
-//For Webpack HMR
+// For Webpack HMR
 module.hot.accept();
