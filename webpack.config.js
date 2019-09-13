@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 module.exports = {
     mode: 'development',
     devtool: 'eval-source-map',
-    entry: { 'main': './wwwroot/src/app.jsx' },
+    entry: { 'main': './wwwroot/src/app.tsx' },
     output: {
         path: path.resolve(__dirname, 'wwwroot/dist'),
         filename: 'bundle.js',
@@ -22,13 +22,15 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.tsx?$/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-react', '@babel/preset-env']
-                    }
                 }
+            },
+            {
+                test: /\.jsx?$/,
+                use: ["source-map-loader"],
+                enforce: "pre"
             },
             {
                 test: /\.s(a|c)ss$/,
@@ -53,7 +55,6 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.scss']
+        extensions: ['.js', '.jsx', ".tsx", ".ts", '.scss']
     }
-
 };

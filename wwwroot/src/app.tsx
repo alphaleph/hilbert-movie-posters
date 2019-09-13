@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './components/home.jsx';
-import NavBar from './components/navbar.jsx';
+import Home from './components/home';
+import NavBar from './components/navbar';
 import './styles/style.scss';
 
-function App(props) {
+function App() {
     return (
         <div id="app">
             <NavBar/>
@@ -24,7 +24,8 @@ function App(props) {
 
 ReactDOM.render(
     <App />,
-    document.querySelector('#container')
+    document.querySelector('#container') as HTMLElement
 );
 
+//For Webpack HMR
 module.hot.accept();

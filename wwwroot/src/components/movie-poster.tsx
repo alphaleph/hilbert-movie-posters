@@ -1,6 +1,11 @@
 import React from 'react';
 
-function MoviePoster(props) {
+export interface MoviePosterProps {
+    moviePosterName: string; 
+    moviePosterYear: number;
+}
+
+function MoviePoster(props: MoviePosterProps) {
     return (
         <li>
             <p>{props.moviePosterName} ({props.moviePosterYear})</p>
