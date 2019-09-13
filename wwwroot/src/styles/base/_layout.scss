@@ -6,6 +6,18 @@ Initial Layout
 ########################
 */
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#container, #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .initial-flex {
     display: flex;
     flex-flow: row wrap;
@@ -15,6 +27,7 @@ Initial Layout
 
 #app {
     @extend .initial-flex;
+    position: relative;
 }
 
 #app > * {
@@ -40,15 +53,23 @@ $screen-xl-min: 1200px;
 
 
 @include breakpoint($screen-sm-min) {
-    #app > aside { flex: 1 auto; }
+    #app {
+        aside { flex: 1 auto; }
+    }
 }
 
 @include breakpoint($screen-md-min) {
-    #app > main { flex: 2 0px; }
     .aside-left { order: 1; }
-    #app > main { order: 2; }
+    #app {
+        main { 
+            order: 2;
+            flex: 2 0px; 
+        }
+    }
     .aside-right { order: 3; }
-    #app > footer { order: 4; }
+    #app {
+        footer { order: 4; }
+    }
 }
 
 // @include breakpoint($screen-lg-min) {
