@@ -59,6 +59,7 @@ $screen-xl-min: 1200px;
 }
 
 @include breakpoint($screen-md-min) {
+    .navbar--main { order: 0; }
     .aside-left { order: 1; }
     #app {
         main { 
