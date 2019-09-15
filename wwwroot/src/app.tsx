@@ -5,6 +5,7 @@ import { Home } from './components/home';
 import { NavBar } from './components/navbar';
 import { SiteMap } from './components/site-map';
 import './styles/style.scss';
+import 'bootstrap';
 
 function App(): JSX.Element {
     return (

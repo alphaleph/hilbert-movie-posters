@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/components/navbar.scss';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 export function NavBar(): JSX.Element {
     return (
@@ -10,12 +12,16 @@ export function NavBar(): JSX.Element {
                 </a>
             </div>
             <ul className="left-group">
-                <li>Left Button</li>
-                <li>Left Button #2</li>
+                <ButtonGroup>
+                    <Button variant="primary">Left Button #1</Button>
+                    <Button variant="secondary">Left Button #2</Button>
+                </ButtonGroup>
             </ul>
             <ul className="right-group">
-                <li>Right Button</li>
-                <li>Right Button #2</li>
+                <ButtonGroup>
+                    <Button variant="primary">Right Button #1</Button>
+                    <Button variant="secondary">Right Button #2</Button>
+                </ButtonGroup>
             </ul>
         </nav>
     );

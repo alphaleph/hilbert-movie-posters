@@ -22,8 +22,8 @@
 
 ## About the Project
 * ASP.NET Core RESTful service layer with Entity Framework Core ORM
-* SPA-style front-end with Webpack, React, Babel
-* MS SQL Server 2017 persistent database
+* SPA-style front-end with Webpack, React, Babel, Typescript, Bootstrap
+* MS SQL Server 2017 persistent database running on a Docker container
 
 ### Built With
 * [MS SQL Server](https://www.microsoft.com/en-us/sql-server/default.aspx)
@@ -35,6 +35,8 @@
 * [Docker](https://www.docker.com)
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is?view=sql-server-2017)
 * [VS Code](https://code.visualstudio.com)
+* [TypeScript](https://www.typescriptlang.org)
+* [Bootstrap](https://getbootstrap.com)
 
 ## Getting Started
 
@@ -98,13 +100,15 @@ docker container stop movie-posters-db
 
 ### Optimizations
 - [ ] Implement lazy-loading
+- [ ] Individually import Bootstrap plugins *Needs exports-loader
 
 ### Dev Environment
 - [x] Fundamental stack set-up
 - [x] Set up source maps + HMR
 - [ ] Set up BDD/TDD: Cucumber + Selenium + Jest
-- [ ] Set up SCSS env (minifying, autoprefixer)
-- [ ] Migrate to Typescript
+- [x] Set up SCSS env (minifying, autoprefixer)
+- [x] Migrate to Typescript
+- [x] Add [React] Bootstrap
 
 ## License
 

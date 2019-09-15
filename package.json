@@ -43,6 +43,7 @@
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
     "sass-loader": "^8.0.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.0",
@@ -55,8 +56,12 @@
     "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "core-js": "^3.2.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
     "react": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1"
   }
