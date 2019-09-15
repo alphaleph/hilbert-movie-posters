@@ -63,13 +63,11 @@ $screen-xl-min: 1200px;
     #app {
         main { 
             order: 2;
-            flex: 2 0px; 
+            flex-grow: 2; 
         }
     }
     .aside-right { order: 3; }
-    #app {
-        footer { order: 4; }
-    }
+    .site-map--main { order: 4; }
 }
 
 // @include breakpoint($screen-lg-min) {

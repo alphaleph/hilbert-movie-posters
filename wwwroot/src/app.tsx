@@ -1,24 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Home } from './components/home';
 import { NavBar } from './components/navbar';
+import { SiteMap } from './components/site-map';
 import './styles/style.scss';
 
-function App() {
+function App(): JSX.Element {
     return (
-        <div id="app">
-            <NavBar/>
-            <Home/>
-            <aside className="aside-left">
-                <p>Left Aside</p>
-            </aside>
-            <aside className="aside-right">
-                <p>Right Aside</p>
-            </aside>
-            <footer>
-                <p>Site Map</p>
-            </footer>
-        </div>
+        <Router>
+            <div id="app">
+                <NavBar/>
+                <Home/>
+                <SiteMap/>
+            </div>
+        </Router>
     );
 }
 

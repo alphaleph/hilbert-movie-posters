@@ -1,4 +1,9 @@
 @import '../base/layout';
+@import '../base/globals';
+
+.navbar--main {
+    background-color: $background-color--primary;
+}
 
 .nav-logo-container {
     display: flex;

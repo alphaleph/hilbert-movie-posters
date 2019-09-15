@@ -1,14 +1,15 @@
 import React from 'react';
-import '../styles/components/home.scss';
+import '../styles/components/home';
 import { MoviePosterList } from './movie-poster-list';
 
-export function Home() {
+export function Home(): JSX.Element {
     return (
-        <main>
+        <main className="home">
             <h1>Movie Posters API</h1>
             <MoviePosterList getMoviePostersUrl='/api/movieposters'/>
-            <h1 className="red">Hello world! Font change here too!</h1>
-            <p>Font should change!</p>
+            <MoviePosterList getMoviePostersUrl='/api/movieposters'/>
+            <MoviePosterList getMoviePostersUrl='/api/movieposters'/>
+            <MoviePosterList getMoviePostersUrl='/api/movieposters'/>
         </main>
     );
 }

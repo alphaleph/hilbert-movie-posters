@@ -1,7 +1,18 @@
-main {
+@import '../base/globals';
+
+.home {
     margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    background-color: $background-color--primary;
 }
 
-.red {
-    color: red;
+.home > * {
+    flex: 1 100%;
+}
+
+.home > p, h1, h2, h3, h4, h5, h6 {
+    text-align: center;
 }

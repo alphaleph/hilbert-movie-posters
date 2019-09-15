@@ -5,7 +5,7 @@ export interface IMoviePosterProps {
     moviePosterYear: number;
 }
 
-export function MoviePoster(props: IMoviePosterProps) {
+export function MoviePoster(props: IMoviePosterProps): JSX.Element {
     return (
         <li>
             <p>{props.moviePosterName} ({props.moviePosterYear})</p>

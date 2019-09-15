@@ -1,32 +1,42 @@
 import React, { useEffect, useState } from 'react';
+import { IMoviePosterData } from '../models/IMoviePosterData';
 import { ListEmpty } from './list-empty';
 import { MoviePoster } from './movie-poster';
+import '../styles/components/movie-poster-list';
 
 export interface IMoviePosterListProps {
     getMoviePostersUrl: string;
 }
 
-export function MoviePosterList(props: IMoviePosterListProps) {
-    const [moviePosters, setMoviePosters] = useState([]);
+export function MoviePosterList(props: IMoviePosterListProps): JSX.Element {
+    const [moviePosters, setMoviePosters] = useState({ isLoading: true, data: [] });
 
-    const isListEmpty: boolean  = !moviePosters.length;
+    let isListEmpty: boolean  = !moviePosters.data.length;
 
-    function loadMoviePosters(url: string) {
-        fetch(url)
-            .then(response => response.json())
-            .then(response => setMoviePosters(response));
+    async function loadMoviePosters(url: string): Promise<void> {
+        try {
+            await fetch(url)
+                .then(response => response.json())
+                .then(response => { 
+                    setMoviePosters({ isLoading: false, data: response });
+                    isListEmpty = !moviePosters.data.length;
+                });
+        } catch (e) {
+            throw new Error('Error in retrieving initial movie poster data...');
+        }
     }
 
     useEffect(() => {
-        if (isListEmpty) { 
+
+        if (moviePosters.isLoading && isListEmpty) { 
             loadMoviePosters(props.getMoviePostersUrl); 
         }
     });
 
     return (
-        <ul>
+        <ul className="movie-posters">
             {
-                isListEmpty ? <ListEmpty/> : moviePosters.map(moviePoster => (
+                isListEmpty ? <ListEmpty/> : moviePosters.data.map((moviePoster: IMoviePosterData) => (
                         <MoviePoster 
                             key={moviePoster.id} 
                             moviePosterName={moviePoster.name} 

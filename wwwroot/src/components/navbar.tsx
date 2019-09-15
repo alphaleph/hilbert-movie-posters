@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/components/navbar.scss';
 
-export function NavBar() {
+export function NavBar(): JSX.Element {
     return (
-        <nav id="navbar-main">
+        <nav className="navbar--main">
             <div className="nav-logo-container">
                 <a href="https://localhost:5001/home">
                     <img alt="Movie Posters Homepage" src="../apple-touch-icon.png"/>
