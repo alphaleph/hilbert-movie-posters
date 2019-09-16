@@ -2,10 +2,10 @@
 <p align="center">
   <img src="github/logo.png" alt="Logo" width="80" height="80">
 
-  <h3 align="center">Movie Posters</h3>
+  <h3 align="center">Hilbert - Movie Posters</h3>
 
   <p align="center">
-    A full-stack (React, ASP.NET Core, MS SQL Server) Movie Poster Review App
+    Hilbert: A full-stack (React, ASP.NET Core, MS SQL Server) Movie Poster Review App
   </p>
 </p>
 
@@ -22,7 +22,7 @@
 
 ## About the Project
 * ASP.NET Core RESTful service layer with Entity Framework Core ORM
-* SPA-style front-end with Webpack, React, Babel, Typescript, Bootstrap
+* SPA-style front-end with Webpack, React, Babel, Typescript, Flexbox, Bootstrap, React Router
 * MS SQL Server 2017 persistent database running on a Docker container
 
 ### Built With
@@ -93,10 +93,14 @@ docker container stop movie-posters-db
 ### Features
 - [x] View List of Movie Posters
 - [ ] Base UI Design + Icon
+- [ ] Add Animations/Transitions
 - [ ] CRUD Movie Posters 
 - [ ] CRUD Comments
 - [ ] Movie Poster Search
 - [ ] Account Management
+
+### Technical Fixes
+- [ ] SPA: Direct URL Navigation (SSR?)
 
 ### Optimizations
 - [ ] Implement lazy-loading
@@ -109,6 +113,8 @@ docker container stop movie-posters-db
 - [x] Set up SCSS env (minifying, autoprefixer)
 - [x] Migrate to Typescript
 - [x] Add [React] Bootstrap
+- [x] Add React Router + React-Router-Bootstrap
+- [ ] Migrate to Redux
 
 ## License
 
