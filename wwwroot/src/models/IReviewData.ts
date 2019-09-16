@@ -1,6 +1,6 @@
 import { IMoviePosterData } from "./IMoviePosterData";
 
-export interface IReview {
+export interface IReviewData {
     id: number;
     name: string;
     postedDate: Date;
