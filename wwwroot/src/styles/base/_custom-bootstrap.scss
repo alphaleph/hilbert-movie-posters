@@ -1,16 +1,19 @@
 @import './globals';
 
 $primary: $background-color__interactive--primary;
-// $secondary:     $gray-600 !default;
+$secondary: $background-color__interactive--secondary;
 // $success:       $green !default;
-// $info:          $cyan !default;
+$info:          $background-color__interactive--tertiary;
 // $warning:       $yellow !default;
 // $danger:        $red !default;
 // $light:         $gray-100 !default;
 // $dark:          $gray-800 !default;
+
+// $background-color--primary:#515E5D;
 // $background-color--secondary: #577590;
 // $background-color--tertiary: #DCDDA7;
 // $background-color__interactive--primary: #EAD94C;
 // $background-color__interactive--secondary: #E76846;
+// $background-color__interactive--tertiary: #D6FFB7;
 // $font-color--light: #F7F7F7;
 // $font-color--dark: #1A1A1A;

@@ -1,12 +1,14 @@
 import React from 'react';
-import '../styles/components/site-map'
+import { Link } from 'react-router-dom'; 
+import '../styles/components/site-map';
+import './about';
 
 export function SiteMap(): JSX.Element {
     return (
         <nav className="site-map--main">
             <ul>
                 <li>
-                    <a href="/about">About</a>
+                    <Link to="/about">About</Link>
                 </li>
                 <li>
                     <a href="https://github.com/chaua0927/movie-posters">GitHub</a>
