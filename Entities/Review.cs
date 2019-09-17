@@ -22,6 +22,7 @@ namespace MoviePostersAPI.Entities
         [MaxLength(255)]
         public string Comment { get; set; }
 
+        public int MoviePosterId { get; set; }
         [Required]
         public MoviePoster MoviePoster { get; set; }
     }

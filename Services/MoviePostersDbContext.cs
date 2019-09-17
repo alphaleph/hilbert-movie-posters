@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoviePostersAPI.Entities;
+using System.Linq;
 
 namespace MoviePostersAPI.Services
 {
@@ -7,6 +8,9 @@ namespace MoviePostersAPI.Services
     {
 
         public DbSet<MoviePoster> MoviePosters { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<PosterImage> PosterImages { get; set; }
 
         public MoviePostersDbContext (DbContextOptions<MoviePostersDbContext> options)
             : base(options)
@@ -19,7 +23,21 @@ namespace MoviePostersAPI.Services
             modelBuilder.Entity<Review>()
                 .Property(r => r.PostedDate)
                 .HasDefaultValueSql("getDate()");
+
+            modelBuilder.Entity<MoviePoster>()
+                .HasOne(mp => mp.Movie)
+                .WithMany(m => m.MoviePosters)
+                .HasForeignKey(mp => mp.MovieId);
+
+            // modelBuilder.Entity<PosterImage>()
+            //     .HasOne(pi => pi.MoviePoster)
+            //     .WithOne(m => m.PosterImage)
+            //     .HasForeignKey(pi => pi.MoviePosterId);
+            
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.MoviePoster)
+                .WithMany(mp => mp.Reviews)
+                .HasForeignKey(r => r.MoviePosterId);
         }
-        
     }
 }

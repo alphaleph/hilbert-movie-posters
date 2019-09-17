@@ -26,6 +26,7 @@ namespace MoviePostersAPI.Entities
 
         public int RatingCount { get; set; } = 0;
 
+        public int MovieId { get; set; }
         public Movie Movie { get; set; }
 
         public ICollection<Review> Reviews { get; set; }

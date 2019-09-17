@@ -11,5 +11,9 @@ namespace MoviePostersAPI.Entities
 
         [Required]
         public byte[] Image { get; set; }
+
+        public int MoviePosterId { get; set; }
+
+        public MoviePoster MoviePoster { get; set; }
     }
 }
