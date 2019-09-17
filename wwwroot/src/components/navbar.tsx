@@ -15,7 +15,7 @@ export function NavBar(): JSX.Element {
         <nav className="navbar--main">
                 <div className="nav-logo-container">
                     <Link to="/">
-                        <img alt="Movie Posters Homepage" src="../apple-touch-icon.png"/>
+                        <img className="logo-img" alt="Movie Posters Homepage" src="../apple-touch-icon.png"/>
                     </Link>
                 </div>
             <ul className="left-group">
