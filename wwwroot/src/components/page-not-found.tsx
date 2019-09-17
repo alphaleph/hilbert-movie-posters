@@ -12,4 +12,5 @@ export function PageNotFound(): JSX.Element {
                 </h2>
             </Container>
         </main>
+    );
 }
