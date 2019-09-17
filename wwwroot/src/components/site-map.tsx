@@ -5,7 +5,7 @@ import './about';
 
 export function SiteMap(): JSX.Element {
     return (
-        <nav className="site-map--main">
+        <nav className="site-map--main py-5">
             <ul>
                 <li>
                     <Link to="/about">About</Link>
