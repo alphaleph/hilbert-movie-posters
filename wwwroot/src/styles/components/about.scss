@@ -1,5 +1,30 @@
 @import '../base/globals';
+@import '../base/mixins';
+@import '../base/layout';
 
 .about--main {
     background-color: $background-color--primary;
+}
+
+.about-img {
+    max-height: 40vh;
+}
+
+.quote-citation {
+    text-align: right;
+}
+
+.about-text {
+    font-size: 1.2em;
+}
+
+.about--container {
+    background-color: $background-color--tertiary;
+    border-radius: 10% 15%;
+}
+
+@include breakpoint($screen-sm-min) {
+    .about-text {
+        text-align: left;
+    }
 }
