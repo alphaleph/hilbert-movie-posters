@@ -1,13 +1,15 @@
 import React from 'react';
 import '../styles/components/page-not-found.scss';
+import Container from 'react-bootstrap/Container';
 
 export function PageNotFound(): JSX.Element {
     return (
-        <div>
-            <h1>404 Page</h1>
-            <p>
-                Sorry, under construction!
-            </p>
-        </div>
-    );
+        <main className="my-9">
+            <Container className="page-not-found--content">
+                <h1>404 page</h1>
+                <h2>
+                    Sorry, under construction!
+                </h2>
+            </Container>
+        </main>
 }

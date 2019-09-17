@@ -1,15 +1,16 @@
 import React from 'react';
 import '../styles/components/add-movie-poster.scss';
+import Container from 'react-bootstrap/Container';
 
 export function AddMoviePoster(): JSX.Element {
     return (
-        <div>
-            <h1>
-                Add A Movie Page
-            </h1>
-            <p>
-                Sorry, under construction!
-            </p>
-        </div>
+        <main className="my-9">
+            <Container className="add-movie-poster--content">
+                <h1>Add a Movie Poster  page</h1>
+                <h2>
+                    Sorry, under construction!
+                </h2>
+            </Container>
+        </main>
     );
 }
