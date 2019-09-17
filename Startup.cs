@@ -11,17 +11,25 @@ using MoviePostersAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.Extensions.Configuration;
 
 namespace movie_posters
 {
     public class Startup
     {
+        private IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration config)
+        {
+            Configuration = config;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "Server=192.168.99.100,1433;Database=MoviePostersDb;User Id=sa;Password=Passw0rd1!";
-            services.AddDbContext<MoviePostersDbContext>( options => options.UseSqlServer(connectionString) );
+            services.AddDbContext<MoviePostersDbContext>( options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
         }
 
