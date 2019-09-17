@@ -55,6 +55,12 @@ namespace movie_posters
             });
             app.UseCookiePolicy();
             app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes => 
+            {
+                routes.MapRoute(name: "catch-all",
+                    template: "{*url}",
+                    defaults: new { controller = "Home", action = "Index" });
+            });
 
         }
     }

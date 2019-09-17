@@ -100,7 +100,8 @@ docker container stop movie-posters-db
 - [ ] Account Management
 
 ### Technical Fixes
-- [ ] SPA: Direct URL Navigation (SSR?)
+- [x] SPA: History API fallback
+- [ ] SPA: Direct URL Navigation
 
 ### Optimizations
 - [ ] Implement lazy-loading
@@ -115,6 +116,8 @@ docker container stop movie-posters-db
 - [x] Add [React] Bootstrap
 - [x] Add React Router + React-Router-Bootstrap
 - [ ] Migrate to Redux
+- [ ] Implement reverse proxy server (Nginx)
+- [ ] Implement SwaggerAPI spec
 
 ## License
 
