@@ -21,7 +21,7 @@
 * [License](#license)
 
 ## About the Project
-* ASP.NET Core RESTful service layer with Entity Framework Core ORM
+* ASP.NET Core RESTful service layer with Entity Framework Core ORM and Swagger API Spec
 * SPA-style front-end with Webpack, React, Babel, Typescript, Flexbox, Bootstrap, React Router
 * MS SQL Server 2017 persistent database running on a Docker container
 
@@ -37,6 +37,7 @@
 * [VS Code](https://code.visualstudio.com)
 * [TypeScript](https://www.typescriptlang.org)
 * [Bootstrap](https://getbootstrap.com)
+* [Swagger](https://swagger.io)
 
 ## Getting Started
 
@@ -101,11 +102,12 @@ docker container stop movie-posters-db
 
 ### Technical Fixes
 - [x] SPA: History API fallback
-- [ ] SPA: Direct URL Navigation
 
 ### Optimizations
 - [ ] Implement lazy-loading
 - [ ] Individually import Bootstrap plugins *Needs exports-loader
+- [ ] Implement pagination of DB access
+- [ ] SPA: Integrate SSR
 
 ### Dev Environment
 - [x] Fundamental stack set-up
@@ -117,7 +119,7 @@ docker container stop movie-posters-db
 - [x] Add React Router + React-Router-Bootstrap
 - [ ] Migrate to Redux
 - [ ] Implement reverse proxy server (Nginx)
-- [ ] Implement SwaggerAPI spec
+- [x] Implement Swagger API spec
 
 ## License
 
