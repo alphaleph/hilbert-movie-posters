@@ -1,0 +1,467 @@
+openapi: 3.0.0
+servers:
+  - url: https://localhost:5051
+info:
+  description: Get movie posters, movies, and reviews for viewing and usage. Data is currently only available in JSON format. 
+  version: "1.0.0"
+  title: Hilbert Movie Posters API
+  contact:
+    name: Hilbert Movie Posters
+    url: https://github.com/chaua0927/hilbert-movie-posters
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+tags:
+  - name: movieposters
+    description: Information about movie posters
+  - name: movies
+    description: Information about movies
+paths:
+  /movieposters:
+    get:
+      tags:
+        - movieposters
+      summary: Gets matching movie posters (default limit is 20)
+      parameters:
+        - in: query
+          name: name
+          description: Search by poster name
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: artist
+          description: Search by poster artist
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: year
+          description: Search by poster year
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: movie
+          description: Search by poster movie name
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: rating
+          description: Search by poster rating
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: skip
+          required: false
+          description: Number of records to skip for pagination
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: limit
+          required: false
+          description: Maximum number of records to return
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 50
+      responses:
+        '200':
+          description: Search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MoviePoster'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      tags:
+        - movieposters
+      summary: Adds a new movie poster
+      description: Adds a new movie poster
+      requestBody:
+        required: true
+        description: Movie poster to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoviePoster'
+      responses:
+        '201':
+          description: Provides copy of the added movie poster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoviePoster'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /movieposters/{moviePosterId}:
+    parameters:
+      - in: path
+        name: moviePosterId
+        required: true
+        description: Perform action by poster id
+        schema: 
+          type: integer
+          format: int64        
+    get:
+      tags: 
+        - movieposters
+      summary: Gets one specified movie poster
+      responses:
+        '200':
+          description: Search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MoviePoster'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      tags:
+        - movieposters
+      summary: Updates one specified movie poster
+      requestBody:
+        required: true
+        description: Update movie poster schema
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoviePoster'
+      responses:
+        '200':
+          description: Provides copy of the updated movie poster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoviePoster'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - movieposters
+      summary: Deletes one specified movie poster
+      parameters:
+        - in: path
+          name: moviePosterId
+          required: true
+          description: Deletes one specified movie poster
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Inherent confirmation of deletion
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /movieposter/{moviePosterId}/reviews/{reviewId}:
+    parameters:
+    - in: path
+      name: moviePosterId
+      required: true
+      description: Search reviews by poster id
+      schema:
+        type: integer
+        format: int64
+    - in: path
+      name: reviewId
+      required: true
+      description: Perform action by review id
+      schema:
+        type: integer
+        format: int64
+    put:
+      tags:
+        - movieposters
+      summary: Updates one specified review
+      requestBody:
+        required: true
+        description: Update review schema
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '200':
+          description: Provides copy of the updated review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - movieposters
+      summary: Deletes one specified review
+      responses:
+        '204':
+          description: Inherent confirmation of deletion
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /movies:
+    get:
+      tags:
+        - movies
+      summary: Gets matching movies
+      parameters:
+        - in: query
+          name: name
+          description: Search by poster name
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: year
+          description: Search by poster year
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      
+  /movies/{movieId}:
+    parameters:
+        - in: path
+          name: movieId
+          required: true
+          description: Perform action by movie id
+          schema:
+            type: integer
+            format: int64
+    get:
+      tags:
+        - movies
+      summary: Gets one specified movie
+      responses:
+        '200':
+          description: Search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      tags:
+        - movies
+      summary: Updates one specified movie
+      requestBody:
+        required: true
+        description: Update movie schema
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Movie'
+      responses:
+        '200':
+          description: Provides copy of the updated movie
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+
+components:
+  responses:
+    BadRequest:
+      description: Invalid action parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: User is unauthorized to access this resource
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    MoviePoster:
+      type: object
+      required:
+        - id
+        - name
+        - artist
+        - posterImage
+      properties:
+        moviePosterId:
+          type: integer
+          format: int64
+          example: 2
+        name:
+          type: string
+          example: Vertigo by Enzo Nistri
+        artist:
+          type: string
+          example: Enzo Nistri
+        year:
+          type: integer
+          format: int64
+          example: 1984
+        rating:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 5
+          example: 3
+        ratingCount:
+          type: integer
+          format: int64
+          example: 42
+        movieId:
+          type: integer
+          format: int64
+          example: 2
+        movie:
+          $ref: '#/components/schemas/Movie'
+        posterImage:
+          $ref: '#/components/schemas/PosterImage'
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+    PosterImage:
+      type: object
+      required:
+        - id
+        - image
+      properties:
+        posterImageId:
+          type: integer
+          format: int64
+          example: 2
+        image:
+          type: string
+          format: byte
+        moviePosterId:
+          type: integer
+          format: int64
+          example: 2
+        moviePoster:
+          $ref: '#/components/schemas/MoviePoster'
+    Review:
+      required:
+        - name
+        - moviePoster
+      properties:
+        name:
+          type: string
+          example: Hauer
+        moviePosterId:
+          type: integer
+          format: int64
+          example: 2
+        moviePoster:
+          $ref: '#/components/schemas/MoviePoster'
+        postedDate:
+          type: string
+          format: DateTime
+          example: 2017-07-21T17:32:28Z
+        rating:
+          type: integer
+          format: int64
+          example: 4
+        comment:
+          type: string
+          example: Like tears in rain...
+    Movie:
+      required:
+        - name
+        - moviePosters
+      properties:
+        movieId:
+          type: integer
+          format: int64
+          example: 2
+        name:
+          type: string
+          example: Highlander
+        year:
+          type: integer
+          example: 1984
+        moviePosters:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoviePoster'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
