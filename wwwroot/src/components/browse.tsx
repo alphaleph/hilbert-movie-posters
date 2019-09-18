@@ -6,7 +6,7 @@ export function Browse(): JSX.Element {
     return (
         <main className="my-9">
             <Container className="browse--content">
-                <h1>404 page</h1>
+                <h1>Browse Page</h1>
                 <h2>
                     Sorry, under construction!
                 </h2>
