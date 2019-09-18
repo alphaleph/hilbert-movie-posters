@@ -1,4 +1,8 @@
+import { IMoviePosterData } from './IMoviePosterData';
+
 export interface IPosterImageData {
-    id: number;
+    posterImageId: number;
     image: Int8Array;
+    moviePosterId: number;
+    moviePoster: IMoviePosterData;
 }

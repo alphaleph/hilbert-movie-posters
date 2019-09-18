@@ -8,7 +8,7 @@ namespace MoviePostersAPI.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ReviewId { get; set; }
 
         [Required]
         [MaxLength(100)]
@@ -17,7 +17,7 @@ namespace MoviePostersAPI.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime PostedDate { get; set; }
 
-        public int Rating { get; set; }
+        public int? Rating { get; set; }
 
         [MaxLength(255)]
         public string Comment { get; set; }

@@ -1,7 +1,7 @@
 import { IMoviePosterData } from "./IMoviePosterData";
 
 export interface IMovieData {
-    id: number;
+    movieId: number;
     name: string;
     year: number;
     moviePosters: IMoviePosterData[];

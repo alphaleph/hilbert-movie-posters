@@ -7,7 +7,7 @@ namespace MoviePostersAPI.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int PosterImageId { get; set; }
 
         [Required]
         public byte[] Image { get; set; }

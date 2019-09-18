@@ -3,13 +3,14 @@ import { IPosterImageData } from './IPosterImageData';
 import { IReviewData } from './IReviewData';
 
 export interface IMoviePosterData {
-    id: number;
+    moviePosterId: number;
     posterImage: IPosterImageData;
     name: string;
     year: number;
     artist: string;
     rating: number;
     ratingCount: number;
+    movieId: number;
     movie: IMovieData;
     reviews: IReviewData[];
 }
