@@ -28,11 +28,6 @@ namespace MoviePostersAPI.Services
                 .HasOne(mp => mp.Movie)
                 .WithMany(m => m.MoviePosters)
                 .HasForeignKey(mp => mp.MovieId);
-
-            // modelBuilder.Entity<PosterImage>()
-            //     .HasOne(pi => pi.MoviePoster)
-            //     .WithOne(m => m.PosterImage)
-            //     .HasForeignKey(pi => pi.MoviePosterId);
             
             modelBuilder.Entity<Review>()
                 .HasOne(r => r.MoviePoster)
