@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Text;
 using MoviePostersAPI.Entities;
-using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace MoviePostersAPI.Services
 {
@@ -24,163 +25,236 @@ namespace MoviePostersAPI.Services
             byte[] seedImage8 = GetImageBytes("Vertigo-by-Roman-Cieslewicz-1963.jpg");
             byte[] seedImage9 = GetImageBytes("Vertigo-by-Saul-Bass-1957.jpg");
 
-            Movie bladeRunner = new Movie() 
+            var movies = new Movie[] 
             {
-                Name = "Blade Runner",
-                Year = 1982
-            };
-            Movie highlander = new Movie() 
-            {
-                Name = "Highlander",
-                Year = 1986
-            };
-            Movie schindlersList = new Movie() 
-            {
-                Name = @"Schindler's List",
-                Year = 1993
-            };
-            Movie theShining = new Movie() 
-            {
-                Name = "The Shining",
-                Year = 1980
-            };
-            Movie vertigo = new Movie()
-            {
-                Name = "Vertigo",
-                Year = 1958
+                new Movie() 
+                {
+                    MovieId = 1,
+                    Name = "Blade Runner",
+                    Year = 1982
+                },
+                new Movie() 
+                {
+                    MovieId = 2,
+                    Name = "Highlander",
+                    Year = 1986
+                },
+                new Movie() 
+                {
+                    MovieId = 3,
+                    Name = @"Schindler's List",
+                    Year = 1993
+                },
+                new Movie() 
+                {
+                    MovieId = 4,
+                    Name = "The Shining",
+                    Year = 1980
+                },
+                new Movie()
+                {
+                    MovieId = 5,
+                    Name = "Vertigo",
+                    Year = 1958
+                }    
             };
             
-            var poster1 = new MoviePoster()
+            var moviePosters = new MoviePoster[]
             {
-                PosterImage = new PosterImage() 
+                new MoviePoster() 
                 {
-                    Image = seedImage1
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 1,
+                        Image = seedImage1
+                    },
+                    MoviePosterId = 1,
+                    Name =  "Blade Runner by DanKNorris",
+                    Year =  2014,
+                    Artist = "DanKNorris",
+                    MovieId = 1,
+                    Movie = movies[0],
                 },
-                Name =  "Blade Runner by DanKNorris",
-                Year =  2014,
-                Artist = "DanKNorris",
-                Movie = bladeRunner,
-            };
-            var poster2 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage2
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 2,
+                        Image = seedImage2
+                    },
+                    MoviePosterId = 2,
+                    Name =  "Highlander by Eileen Steinbach",
+                    Year =  2018,
+                    Artist = "Eileen Steinbach",
+                    MovieId = 2,
+                    Movie = movies[1]
                 },
-                Name =  "Highlander by Eileen Steinbach",
-                Year =  2018,
-                Artist = "Eileen Steinbach",
-                Movie = highlander
-            };
-            var poster3 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage3
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 3,
+                        Image = seedImage3
+                    },
+                    MoviePosterId = 3,
+                    Name =  "Highlander by Unknown",
+                    Year =  1986,
+                    Artist = "Unknown",
+                    MovieId = 2,
+                    Movie = movies[1]
                 },
-                Name =  "Highlander by Unknown",
-                Year =  1986,
-                Artist = "Unknown",
-                Movie = highlander
-            };
-            var poster4 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage4
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 4,
+                        Image = seedImage4
+                    },
+                    MoviePosterId = 4,
+                    Name =  @"Schindler's List by Saul Bass",
+                    Year =  1993,
+                    Artist = "Saul Bass",
+                    MovieId = 3,
+                    Movie = movies[2]
                 },
-                Name =  @"Schindler's List by Saul Bass",
-                Year =  1993,
-                Artist = "Saul Bass",
-                Movie = schindlersList
-            };
-            var poster5 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage5
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 5,
+                        Image = seedImage5
+                    },
+                    MoviePosterId = 5,
+                    Name =  "The Shining by Saul Bass",
+                    Year =  1980,
+                    Artist = "Saul Bass",
+                    MovieId = 4,
+                    Movie = movies[3]
                 },
-                Name =  "The Shining by Saul Bass",
-                Year =  1980,
-                Artist = "Saul Bass",
-                Movie = theShining
-            };
-            var poster6 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage6
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 6,
+                        Image = seedImage6
+                    },
+                    MoviePosterId = 6,
+                    Name =  "Vertigo by Boris Grinsson",
+                    Year =  1957,
+                    Artist = "Boris Grinsson",
+                    MovieId = 5,
+                    Movie = movies[4]
                 },
-                Name =  "Vertigo by Boris Grinsson",
-                Year =  1957,
-                Artist = "Boris Grinsson",
-                Movie = vertigo
-            };
-            var poster7 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage7
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 7,
+                        Image = seedImage7
+                    },
+                    MoviePosterId = 7,
+                    Name =  "Vertigo by Enzo Nistri",
+                    Year =  1957,
+                    Artist = "Enzo Nistri",
+                    MovieId = 5,
+                    Movie = movies[4]
                 },
-                Name =  "Vertigo by Enzo Nistri",
-                Year =  1957,
-                Artist = "Enzo Nistri",
-                Movie = vertigo
-            };
-            var poster8 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage8
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 8,
+                        Image = seedImage8
+                    },
+                    MoviePosterId = 8,
+                    Name =  "Vertigo by Roman Cieslewicz",
+                    Year =  1963,
+                    Artist = "Roman Cieslewicz",
+                    MovieId = 5,
+                    Movie = movies[4]
                 },
-                Name =  "Vertigo by Roman Cieslewicz",
-                Year =  1963,
-                Artist = "Roman Cieslewicz",
-                Movie = vertigo
-            };
-            var poster9 = new MoviePoster()
-            {
-                PosterImage = new PosterImage() 
+                new MoviePoster()
                 {
-                    Image = seedImage9
-                },
-                Name =  "Vertigo by Saul Bass",
-                Year =  1957,
-                Artist = "Saul Bass",
-                Movie = vertigo
+                    PosterImage = new PosterImage() 
+                    {
+                        MoviePosterId = 9,
+                        Image = seedImage9
+                    },
+                    MoviePosterId = 9,
+                    Name =  "Vertigo by Saul Bass",
+                    Year =  1957,
+                    Artist = "Saul Bass",
+                    MovieId = 5,
+                    Movie = movies[4]
+                }
             };
             
-            var reviews = new List<Review>() {
+            var reviews = new Review[] 
+            {
                 new Review()
                 {
+                    ReviewId = 1,
                     Name = "Hauer",
                     Rating = 3,
                     Comment = "Like tears in rain...",
-                    MoviePoster = poster1
+                    MoviePosterId = 1,
                 },
                 new Review() {
+                    ReviewId = 2,
                     Name = "Kurgan",
-                    Rating = 3,
+                    Rating = 1,
                     Comment = "There can be only one...",
-                    MoviePoster = poster1
+                    MoviePosterId = 1,
                 }
             };
 
-            poster1.Reviews = reviews;
+            context.Database.OpenConnection();
+            try 
+            {
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.Movies ON");
+                foreach (Movie m in movies)
+                {
+                    context.Movies.Add(m);
+                }
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.Movies OFF");
+            }
+            finally 
+            {
+                context.Database.CloseConnection();
+            }
 
-            var moviePosters = new List<MoviePoster>();
-            moviePosters.Add(poster1);
-            moviePosters.Add(poster2);
-            moviePosters.Add(poster3);
-            moviePosters.Add(poster4);
-            moviePosters.Add(poster5);
-            moviePosters.Add(poster6);
-            moviePosters.Add(poster7);
-            moviePosters.Add(poster8);
-            moviePosters.Add(poster9);
+            context.Database.OpenConnection();
+            try 
+            {
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.MoviePosters ON");
+                foreach (MoviePoster mp in moviePosters)
+                {
+                    context.MoviePosters.Add(mp);
+                }
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.MoviePosters OFF");
+            }
+            finally 
+            {
+                context.Database.CloseConnection();
+            }
 
-            context.AddRange(moviePosters);
-            context.SaveChanges();
+            context.Database.OpenConnection();
+            try 
+            {
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.Reviews ON");
+                foreach (Review r in reviews)
+                {
+                    context.Reviews.Add(r);
+                }
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.Reviews OFF");
+            }
+            finally 
+            {
+                context.Database.CloseConnection();
+            }
         }
 
         public static byte[] GetImageBytes(string imageName)

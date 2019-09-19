@@ -22,7 +22,7 @@ namespace MoviePostersAPI.Services
         {
             modelBuilder.Entity<Review>()
                 .Property(r => r.PostedDate)
-                .HasDefaultValueSql("getDate()");
+                .HasDefaultValueSql("CONVERT(date, GETDATE())");
 
             modelBuilder.Entity<MoviePoster>()
                 .HasOne(mp => mp.Movie)
