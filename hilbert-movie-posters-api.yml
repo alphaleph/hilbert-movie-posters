@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: https://localhost:5051
+  - url: https://localhost:5051/api
 info:
   description: Get movie posters, movies, and reviews for viewing and usage. Data is currently only available in JSON format. 
   version: "1.0.0"
