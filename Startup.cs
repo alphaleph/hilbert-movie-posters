@@ -34,7 +34,7 @@ namespace movie_posters
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, MoviePostersDbContext moviePostersDbContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -50,8 +50,6 @@ namespace movie_posters
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
-
-            MoviePostersDbContextExtensions.CreateSeedData(moviePostersDbContext);
 
             var provider = new FileExtensionContentTypeProvider();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
