@@ -1,4 +1,7 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using MoviePostersAPI.Services;
 
 namespace MoviePostersAPI.Controllers
@@ -14,9 +17,9 @@ namespace MoviePostersAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetMoviePosters()
+        public async Task<IActionResult> GetMoviePosters()
         {
-            return Ok(_context.MoviePosters);
+            return Ok(await _context.MoviePosters.ToListAsync());
         }
     }
 }
