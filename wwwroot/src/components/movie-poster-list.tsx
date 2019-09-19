@@ -43,7 +43,7 @@ export function MoviePosterList(props: IMoviePosterListProps): JSX.Element {
             { isError && <div>Something went wrong...</div> }
             {
                 isListEmpty ? <ListEmpty/> : moviePosters.map((moviePoster: IMoviePosterData) => (
-                    <li key={moviePoster.id}>
+                    <li key={moviePoster.moviePosterId}>
                         <MoviePoster 
                             moviePosterName={moviePoster.name} 
                             moviePosterYear={moviePoster.year} 
