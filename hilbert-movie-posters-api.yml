@@ -21,6 +21,7 @@ paths:
     get:
       tags:
         - movieposters
+      operationId: GetMoviePosters
       summary: Gets matching movie posters (default limit is 20)
       parameters:
         - in: query
@@ -90,6 +91,7 @@ paths:
     post:
       tags:
         - movieposters
+      operationId: AddMoviePoster
       summary: Adds a new movie poster
       description: Adds a new movie poster
       requestBody:
@@ -120,10 +122,11 @@ paths:
         description: Perform action by poster id
         schema: 
           type: integer
-          format: int64        
+          format: int32
     get:
       tags: 
         - movieposters
+      operationId: GetMoviePosterById
       summary: Gets one specified movie poster
       responses:
         '200':
@@ -143,6 +146,7 @@ paths:
     put:
       tags:
         - movieposters
+      operationId: updateMoviePosterById
       summary: Updates one specified movie poster
       requestBody:
         required: true
@@ -167,6 +171,7 @@ paths:
     delete:
       tags:
         - movieposters
+      operationId: DeleteMoviePosterById
       summary: Deletes one specified movie poster
       parameters:
         - in: path
@@ -175,7 +180,7 @@ paths:
           description: Deletes one specified movie poster
           schema:
             type: integer
-            format: int64
+            format: int32
       responses:
         '204':
           description: Inherent confirmation of deletion
@@ -193,17 +198,18 @@ paths:
       description: Search reviews by poster id
       schema:
         type: integer
-        format: int64
+        format: int32
     - in: path
       name: reviewId
       required: true
       description: Perform action by review id
       schema:
         type: integer
-        format: int64
+        format: int32
     put:
       tags:
         - movieposters
+      operationId: UpdateReviewById
       summary: Updates one specified review
       requestBody:
         required: true
@@ -228,6 +234,7 @@ paths:
     delete:
       tags:
         - movieposters
+      operationId: DeleteReviewById
       summary: Deletes one specified review
       responses:
         '204':
@@ -242,6 +249,7 @@ paths:
     get:
       tags:
         - movies
+      operationId: GetMovies
       summary: Gets matching movies
       parameters:
         - in: query
@@ -281,10 +289,11 @@ paths:
           description: Perform action by movie id
           schema:
             type: integer
-            format: int64
+            format: int32
     get:
       tags:
         - movies
+      operationId: GetMovieById
       summary: Gets one specified movie
       responses:
         '200':
@@ -304,6 +313,7 @@ paths:
     put:
       tags:
         - movies
+      operationId: UpdateMovieById
       summary: Updates one specified movie
       requestBody:
         required: true
@@ -358,7 +368,7 @@ components:
       properties:
         moviePosterId:
           type: integer
-          format: int64
+          format: int32
           example: 2
         name:
           type: string
@@ -368,7 +378,7 @@ components:
           example: Enzo Nistri
         year:
           type: integer
-          format: int64
+          format: int32
           example: 1984
         rating:
           type: integer
@@ -378,11 +388,11 @@ components:
           example: 3
         ratingCount:
           type: integer
-          format: int64
+          format: int32
           example: 42
         movieId:
           type: integer
-          format: int64
+          format: int32
           example: 2
         movie:
           $ref: '#/components/schemas/Movie'
@@ -400,14 +410,14 @@ components:
       properties:
         posterImageId:
           type: integer
-          format: int64
+          format: int32
           example: 2
         image:
           type: string
           format: byte
         moviePosterId:
           type: integer
-          format: int64
+          format: int32
           example: 2
         moviePoster:
           $ref: '#/components/schemas/MoviePoster'
@@ -421,7 +431,7 @@ components:
           example: Hauer
         moviePosterId:
           type: integer
-          format: int64
+          format: int32
           example: 2
         moviePoster:
           $ref: '#/components/schemas/MoviePoster'
@@ -431,7 +441,7 @@ components:
           example: 2017-07-21T17:32:28Z
         rating:
           type: integer
-          format: int64
+          format: int32
           example: 4
         comment:
           type: string
@@ -443,13 +453,14 @@ components:
       properties:
         movieId:
           type: integer
-          format: int64
+          format: int32
           example: 2
         name:
           type: string
           example: Highlander
         year:
           type: integer
+          format: int32
           example: 1984
         moviePosters:
           type: array
@@ -465,3 +476,4 @@ components:
           type: string
         message:
           type: string
+          
