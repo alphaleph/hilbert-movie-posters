@@ -24,11 +24,11 @@ namespace MoviePostersAPI.Entities
         public int MoviePosterId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PosterImage
+        /// Gets or Sets PosterImageUrl
         /// </summary>
-        [DataMember(Name="posterImage")]
+        [DataMember(Name="posterImageUrl")]
         [Required]
-        public PosterImage PosterImage { get; set; }
+        public string PosterImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Name

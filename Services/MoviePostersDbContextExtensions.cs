@@ -15,16 +15,6 @@ namespace MoviePostersAPI.Services
             if (context.MoviePosters.Any())
                 return;
 
-            byte[] seedImage1 = GetImageBytes("Blade-Runner-by-DanKNorris-2014.jpg");
-            byte[] seedImage2 = GetImageBytes("Highlander-by-Eileen-Steinbach-2018.png");
-            byte[] seedImage3 = GetImageBytes("Highlander-by-Unknown-1986.jpg");
-            byte[] seedImage4 = GetImageBytes(@"Schindler's-List-by-Saul-Bass-1993.jpg");
-            byte[] seedImage5 = GetImageBytes("The-Shining-by-Saul-Bass-1980.png");
-            byte[] seedImage6 = GetImageBytes("Vertigo-by-Boris-Grinsson-1957.jpg");
-            byte[] seedImage7 = GetImageBytes("Vertigo-by-Enzo-Nistri-1957.jpg");
-            byte[] seedImage8 = GetImageBytes("Vertigo-by-Roman-Cieslewicz-1963.jpg");
-            byte[] seedImage9 = GetImageBytes("Vertigo-by-Saul-Bass-1957.jpg");
-
             var movies = new Movie[] 
             {
                 new Movie() 
@@ -63,11 +53,7 @@ namespace MoviePostersAPI.Services
             {
                 new MoviePoster() 
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 1,
-                        Image = seedImage1
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250604/hilbert-poster-images/bfo8lhzcrej5fvco4l3w.jpg",
                     MoviePosterId = 1,
                     Name =  "Blade Runner by DanKNorris",
                     Year =  2014,
@@ -77,11 +63,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 2,
-                        Image = seedImage2
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250605/hilbert-poster-images/dbigh1i3lq3yovm943ui.png",
                     MoviePosterId = 2,
                     Name =  "Highlander by Eileen Steinbach",
                     Year =  2018,
@@ -91,11 +73,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 3,
-                        Image = seedImage3
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250606/hilbert-poster-images/vgex4exmf1uidt9ovuxr.jpg",
                     MoviePosterId = 3,
                     Name =  "Highlander by Unknown",
                     Year =  1986,
@@ -105,11 +83,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 4,
-                        Image = seedImage4
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250608/hilbert-poster-images/jqrliijupdnfqhh3wr4m.jpg",
                     MoviePosterId = 4,
                     Name =  @"Schindler's List by Saul Bass",
                     Year =  1993,
@@ -119,11 +93,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 5,
-                        Image = seedImage5
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250608/hilbert-poster-images/zz9gspbirvhnjlejoydt.png",
                     MoviePosterId = 5,
                     Name =  "The Shining by Saul Bass",
                     Year =  1980,
@@ -133,11 +103,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 6,
-                        Image = seedImage6
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250609/hilbert-poster-images/qzhe68aq6wfpavqxed7p.jpg",
                     MoviePosterId = 6,
                     Name =  "Vertigo by Boris Grinsson",
                     Year =  1957,
@@ -147,11 +113,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 7,
-                        Image = seedImage7
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250610/hilbert-poster-images/bqaylkhfugaqhd4rwsqs.jpg",
                     MoviePosterId = 7,
                     Name =  "Vertigo by Enzo Nistri",
                     Year =  1957,
@@ -161,11 +123,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 8,
-                        Image = seedImage8
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250611/hilbert-poster-images/zgyo9eeuaocu55gdmyak.jpg",
                     MoviePosterId = 8,
                     Name =  "Vertigo by Roman Cieslewicz",
                     Year =  1963,
@@ -175,11 +133,7 @@ namespace MoviePostersAPI.Services
                 },
                 new MoviePoster()
                 {
-                    PosterImage = new PosterImage() 
-                    {
-                        MoviePosterId = 9,
-                        Image = seedImage9
-                    },
+                    PosterImageUrl = "https://res.cloudinary.com/chaua0927/image/upload/v1569250613/hilbert-poster-images/ug7lheqvarlkzhmmpawx.jpg",
                     MoviePosterId = 9,
                     Name =  "Vertigo by Saul Bass",
                     Year =  1957,
@@ -255,32 +209,6 @@ namespace MoviePostersAPI.Services
             {
                 context.Database.CloseConnection();
             }
-        }
-
-        public static byte[] GetImageBytes(string imageName)
-        {
-            var filename = $@".\assets\{imageName}";
-            byte[] imageData = null;
-            if (File.Exists(filename))
-            {
-                try {
-                    imageData = System.IO.File.ReadAllBytes(filename);
-                }
-                catch (IOException e)
-                {
-                    if (e.Source != null)
-                        Console.WriteLine($"IOException source: {e.Source}");
-                    throw;
-                    
-                }
-            } 
-            else
-            {
-                Console.WriteLine($"{filename} does not exist...");
-            }
-
-            return imageData;
-
         }
     }
 }

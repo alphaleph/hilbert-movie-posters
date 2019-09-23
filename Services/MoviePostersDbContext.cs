@@ -10,7 +10,6 @@ namespace MoviePostersAPI.Services
         public DbSet<MoviePoster> MoviePosters { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<PosterImage> PosterImages { get; set; }
 
         public MoviePostersDbContext (DbContextOptions<MoviePostersDbContext> options)
             : base(options)

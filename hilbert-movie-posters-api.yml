@@ -394,33 +394,15 @@ components:
           type: integer
           format: int32
           example: 2
+        posterImageUrl:
+          type: string
+          example: https://res.cloudinary.com/chaua0927/image/upload/v1569250610/hilbert-poster-images/bqaylkhfugaqhd4rwsqs.jpg
         movie:
           $ref: '#/components/schemas/Movie'
-        posterImage:
-          $ref: '#/components/schemas/PosterImage'
         reviews:
           type: array
           items:
             $ref: '#/components/schemas/Review'
-    PosterImage:
-      type: object
-      required:
-        - id
-        - image
-      properties:
-        posterImageId:
-          type: integer
-          format: int32
-          example: 2
-        image:
-          type: string
-          format: byte
-        moviePosterId:
-          type: integer
-          format: int32
-          example: 2
-        moviePoster:
-          $ref: '#/components/schemas/MoviePoster'
     Review:
       required:
         - name
@@ -476,4 +458,3 @@ components:
           type: string
         message:
           type: string
-          
