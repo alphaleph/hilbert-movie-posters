@@ -42,12 +42,14 @@ namespace MoviePostersAPI.Entities
         /// Gets or Sets Year
         /// </summary>
         [DataMember(Name="year")]
+        [Required]
         public int Year { get; set; }
 
         /// <summary>
         /// Gets or Sets Artist
         /// </summary>
         [DataMember(Name="artist")]
+        [MaxLength(100)]
         [Required]
         public string Artist { get; set; }
 
@@ -80,6 +82,14 @@ namespace MoviePostersAPI.Entities
         /// </summary>
         [DataMember(Name="reviews")]
         public ICollection<Review> Reviews { get; set; }
+
+
+        public void UpdateRating(int updateAmount)
+        {
+            int totalRating = this.Rating *= this.RatingCount;
+            totalRating += updateAmount;
+            this.Rating = totalRating / this.RatingCount;
+        }
 
         // /// <summary>
         // /// Returns the string presentation of the object

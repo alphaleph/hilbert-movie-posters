@@ -53,12 +53,12 @@ namespace movie_posters
             {
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
             var provider = new FileExtensionContentTypeProvider();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles(new StaticFileOptions 
             {
                 ContentTypeProvider = provider

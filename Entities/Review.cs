@@ -41,8 +41,10 @@ namespace MoviePostersAPI.Entities
         /// <summary>
         /// Gets or Sets Rating
         /// </summary>
+        [Range(0, 5)]
         [DataMember(Name="rating")]
-        public int? Rating { get; set; }
+        [Required]
+        public int Rating { get; set; }
 
         /// <summary>
         /// Gets or Sets Comment

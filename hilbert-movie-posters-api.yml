@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: https://localhost:5051/api
+  - url: https://localhost:5001/api
 info:
   description: Get movie posters, movies, and reviews for viewing and usage. Data is currently only available in JSON format. 
   version: "1.0.0"
@@ -16,6 +16,8 @@ tags:
     description: Information about movie posters
   - name: movies
     description: Information about movies
+  - name: reviews
+    description: Information about reviews
 paths:
   /movieposters:
     get:
@@ -93,14 +95,13 @@ paths:
         - movieposters
       operationId: AddMoviePoster
       summary: Adds a new movie poster
-      description: Adds a new movie poster
       requestBody:
         required: true
         description: Movie poster to add
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MoviePoster'
+              $ref: '#/components/schemas/MoviePosterForm'
       responses:
         '201':
           description: Provides copy of the added movie poster
@@ -154,7 +155,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MoviePoster'
+              $ref: '#/components/schemas/MoviePosterForm'
       responses:
         '200':
           description: Provides copy of the updated movie poster
@@ -190,12 +191,46 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
-  /movieposter/{moviePosterId}/reviews/{reviewId}:
+  /movieposters/{moviePosterId}/reviews:
     parameters:
     - in: path
       name: moviePosterId
       required: true
-      description: Search reviews by poster id
+      description: Access reviews by poster id
+      schema:
+        type: integer
+        format: int32
+    post:
+      tags:
+        - reviews
+      operationId: AddReview
+      summary: Adds a review to movie poster
+      requestBody:
+        required: true
+        description: Review to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewForm'
+      responses:
+        '201':
+          description: Provides copy of the added review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /movieposters/{moviePosterId}/reviews/{reviewId}:
+    parameters:
+    - in: path
+      name: moviePosterId
+      required: true
+      description: Access reviews by poster id
       schema:
         type: integer
         format: int32
@@ -208,7 +243,7 @@ paths:
         format: int32
     put:
       tags:
-        - movieposters
+        - reviews
       operationId: UpdateReviewById
       summary: Updates one specified review
       requestBody:
@@ -217,7 +252,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Review'
+              $ref: '#/components/schemas/ReviewForm'
       responses:
         '200':
           description: Provides copy of the updated review
@@ -233,7 +268,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       tags:
-        - movieposters
+        - reviews
       operationId: DeleteReviewById
       summary: Deletes one specified review
       responses:
@@ -321,7 +356,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Movie'
+              $ref: '#/components/schemas/MovieForm'
       responses:
         '200':
           description: Provides copy of the updated movie
@@ -358,13 +393,37 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
+    MoviePosterForm:
+      type: object
+      required:
+        - name
+        - year
+        - artist
+        - posterImageUrl
+      properties:
+        name:
+          type: string
+          example: Vertigo by Enzo Nistri
+        year:
+          type: integer
+          format: int32
+          example: 1984
+        artist:
+          type: string
+          example: Enzo Nistri
+        posterImageUrl:
+          type: string
+          example: https://res.cloudinary.com/chaua0927/image/upload/v1569250610/hilbert-poster-images/bqaylkhfugaqhd4rwsqs.jpg
+        movieId:
+          type: integer
+          example: 2
     MoviePoster:
       type: object
       required:
-        - id
         - name
+        - year
         - artist
-        - posterImage
+        - posterImageUrl
       properties:
         moviePosterId:
           type: integer
@@ -372,9 +431,11 @@ components:
           example: 2
         name:
           type: string
+          maxLength: 100
           example: Vertigo by Enzo Nistri
         artist:
           type: string
+          maxLength: 100
           example: Enzo Nistri
         year:
           type: integer
@@ -403,13 +464,35 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Review'
-    Review:
+    ReviewForm:
       required:
         - name
-        - moviePoster
+        - rating
       properties:
         name:
           type: string
+          example: Hauer
+        comment:
+          type: string
+          example: 'Like tears in rain...'
+        rating:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 5
+          example: 3
+    Review:
+      required:
+        - name
+        - rating
+      properties:
+        reviewId:
+          type: integer
+          format: int32
+          example: 2
+        name:
+          type: string
+          maxLength: 100
           example: Hauer
         moviePosterId:
           type: integer
@@ -420,17 +503,34 @@ components:
         postedDate:
           type: string
           format: DateTime
-          example: 2017-07-21T17:32:28Z
+          example: "2017-07-21T17:32:28Z"
         rating:
           type: integer
           format: int32
+          minimum: 0
+          maximum: 5
           example: 4
         comment:
           type: string
+          maxLength: 255
           example: Like tears in rain...
+    MovieForm:
+      required:
+        - name
+        - year
+      properties:
+        name:
+          type: string
+          maxLength: 100
+          example: Highlander
+        year:
+          type: integer
+          format: int32
+          example: 1984
     Movie:
       required:
         - name
+        - year
         - moviePosters
       properties:
         movieId:
@@ -439,6 +539,7 @@ components:
           example: 2
         name:
           type: string
+          maxLength: 100
           example: Highlander
         year:
           type: integer

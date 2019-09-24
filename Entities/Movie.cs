@@ -41,7 +41,6 @@ namespace MoviePostersAPI.Entities
         /// Gets or Sets MoviePosters
         /// </summary>
         [DataMember(Name="moviePosters")]
-        [Required]
         public ICollection<MoviePoster> MoviePosters { get; set; }
 
         // /// <summary>

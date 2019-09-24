@@ -22,7 +22,7 @@
 
 ## About the Project
 * ASP.NET Core RESTful service layer with Entity Framework Core ORM and Swagger API Spec
-* SPA-style front-end with Webpack, React, Babel, Typescript, Flexbox, Bootstrap, React Router
+* SPA-style front-end with Webpack, React, Babel, Typescript, Flexbox, Bootstrap, React Router, and Cloudinary CDN
 * MS SQL Server 2017 persistent database running on a Docker container
 
 ### Built With
@@ -38,6 +38,7 @@
 * [TypeScript](https://www.typescriptlang.org)
 * [Bootstrap](https://getbootstrap.com)
 * [Swagger](https://swagger.io)
+* [Cloudinary](https://cloudinary.com)
 
 ## Getting Started
 
@@ -102,11 +103,14 @@ docker container stop movie-posters-db
 
 ### Technical Fixes
 - [x] SPA: History API fallback
+- [ ] Complete API search capabilities
+- [ ] Lagging DB nav prop refs?
 
 ### Optimizations
 - [ ] Implement lazy-loading
 - [ ] Individually import Bootstrap plugins *Needs exports-loader
 - [ ] Implement pagination of DB access
+- [ ] Implement UUIDs for DB entries
 - [ ] SPA: Integrate SSR
 
 ### Dev Environment
@@ -120,6 +124,7 @@ docker container stop movie-posters-db
 - [ ] Migrate to Redux
 - [ ] Implement reverse proxy server (Nginx)
 - [x] Implement Swagger API spec
+- [x] Migrate poster image to Cloudinary CDN
 
 ## License
 
