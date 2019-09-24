@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/page-not-found.scss';
 import Container from 'react-bootstrap/Container';
 
-export function PageNotFound(): JSX.Element {
+export function PageNotFound() {
     return (
         <main className="my-9">
             <Container className="page-not-found--content">

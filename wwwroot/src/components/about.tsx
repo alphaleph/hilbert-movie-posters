@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export function About(): JSX.Element {
+export function About() {
     return (
         <main className="about--main">
             <Container className="about--container">

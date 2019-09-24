@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/signup.scss';
 import Container from 'react-bootstrap/Container';
 
-export function Signup(): JSX.Element {
+export function Signup() {
     return (
         <main className="my-9">
             <Container className="signup--content">

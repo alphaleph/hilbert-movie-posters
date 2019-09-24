@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/components/site-map';
 import './about';
 
-export function SiteMap(): JSX.Element {
+export function SiteMap() {
     return (
         <nav className="site-map--main py-5">
             <ul>

@@ -10,7 +10,7 @@ import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap'; 
 
 
-export function NavBar(): JSX.Element {
+export function NavBar() {
     return (
         <nav className="navbar--main">
                 <div className="nav-logo-container">

@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/add-movie-poster.scss';
 import Container from 'react-bootstrap/Container';
 
-export function AddMoviePoster(): JSX.Element {
+export function AddMoviePoster() {
     return (
         <main className="my-9">
             <Container className="add-movie-poster--content">

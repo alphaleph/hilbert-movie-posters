@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/browse.scss';
 import Container from 'react-bootstrap/Container';
 
-export function Browse(): JSX.Element {
+export function Browse() {
     return (
         <main className="my-9">
             <Container className="browse--content">

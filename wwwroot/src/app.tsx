@@ -14,7 +14,7 @@ import './styles/style.scss';
 import './styles/components/app';
 import 'bootstrap';
 
-function App(): JSX.Element {
+const App = () => {
     return (
         <Router>
             <div id="app">

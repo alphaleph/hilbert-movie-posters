@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/login.scss';
 import Container from 'react-bootstrap/Container';
 
-export function Login(): JSX.Element {
+export function Login() {
     return (
         <main className="my-9">
             <Container className="login--content">

@@ -1,11 +1,7 @@
 import React from 'react';
+import { MoviePosterProps } from '../types/index';
 
-export interface IMoviePosterProps {
-    moviePosterName: string;
-    moviePosterYear: number;
-}
-
-export function MoviePoster(props: IMoviePosterProps): JSX.Element {
+export function MoviePoster(props: MoviePosterProps) {
     return (
         <p>{props.moviePosterName} ({props.moviePosterYear})</p>
     );

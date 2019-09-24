@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/components/home';
+import '../styles/componsents/home';
 import { MoviePosterList } from './movie-poster-list';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export function Home(): JSX.Element {
+export function Home() {
     return (
         <main className="home">
             <Container fluid="true" className="home--content">

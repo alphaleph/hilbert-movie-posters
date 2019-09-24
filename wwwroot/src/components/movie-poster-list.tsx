@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { IMoviePosterData } from '../models/IMoviePosterData';
+import { MoviePosterListProps } from '../types/index';
 import { ListEmpty } from './list-empty';
 import { MoviePoster } from './movie-poster';
 import '../styles/components/movie-poster-list';
 
-export interface IMoviePosterListProps {
-    getMoviePostersUrl: string;
-}
 
-export function MoviePosterList(props: IMoviePosterListProps): JSX.Element {
+
+export function MoviePosterList(props: MoviePosterListProps) {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
     const [moviePosters, setMoviePosters] = useState([]);
