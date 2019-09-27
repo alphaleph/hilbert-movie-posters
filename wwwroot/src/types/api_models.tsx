@@ -27,3 +27,22 @@ export interface IReviewData {
     moviePosterId: number;
     moviePoster: IMoviePosterData;
 }
+
+export interface IMoviePosterForm {
+    name: string,
+    year: number,
+    artist: string,
+    posterImageUrl: string,
+    movieId?: number
+}
+
+export interface IMovieForm {
+    name: string,
+    year: number
+}
+
+export interface IReviewForm {
+    name: string,
+    rating: number,
+    comment?: string
+}

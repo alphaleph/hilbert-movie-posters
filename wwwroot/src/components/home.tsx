@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/componsents/home';
+import '../styles/components/home';
 import { MoviePosterList } from './movie-poster-list';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
