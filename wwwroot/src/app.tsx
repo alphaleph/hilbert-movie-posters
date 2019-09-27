@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { Store } from './redux/store';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './components/home';
 import { NavBar } from './components/navbar';
@@ -36,7 +38,9 @@ const App = () => {
 }
 
 ReactDOM.render(
-    <App />,
+    <Provider store={Store}>
+    <App />
+    </Provider>,
     document.querySelector('#container') as HTMLElement,
 );
 
