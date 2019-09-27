@@ -1,5 +1,5 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import { REQUEST_GET_MOVIE_POSTERS, API_ERROR, DATA_LOADED_MOVIE_POSTERS } from '../redux/constants';
+import { REQUEST_GET_MOVIE_POSTERS, API_ERROR, DATA_LOADED_MOVIE_POSTERS } from '../constants';
 
 export function* apiSaga() {
     yield takeEvery( REQUEST_GET_MOVIE_POSTERS, apiSideEffect);
