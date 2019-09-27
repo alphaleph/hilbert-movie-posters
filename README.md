@@ -5,7 +5,7 @@
   <h3 align="center">Hilbert - Movie Posters</h3>
 
   <p align="center">
-    Hilbert: A full-stack (React, ASP.NET Core, MS SQL Server) Movie Poster Review App
+    Hilbert: A full-stack (React/Redux-Saga, ASP.NET Core, MS SQL Server) Movie Poster Review App
   </p>
 </p>
 
@@ -22,7 +22,7 @@
 
 ## About the Project
 * ASP.NET Core RESTful service layer with Entity Framework Core ORM and Swagger API Spec
-* SPA-style front-end with Webpack, React, Babel, Typescript, Flexbox, Bootstrap, React Router, and Cloudinary CDN
+* SPA-style front-end with Webpack, React, Redux-Saga, Babel, Typescript, Flexbox, Bootstrap, React Router, and Cloudinary CDN
 * MS SQL Server 2017 persistent database running on a Docker container
 
 ### Built With
@@ -30,6 +30,7 @@
 * [Microsoft Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 * [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-2.2)
 * [React](https://reactjs.org)
+* [Redux](https://redux.js.org), [Redux-Saga](https://redux-saga.js.org)
 * [Webpack](https://webpack.js.org)
 * [Babel](https://babeljs.io)
 * [Docker](https://www.docker.com)
@@ -103,25 +104,26 @@ docker container stop movie-posters-db
 
 ### Technical Fixes
 - [x] SPA: History API fallback
-- [ ] Complete API search capabilities
-- [ ] Lagging DB nav prop refs?
+- [ ] API: Complete API search capabilities
+- [ ] API: Lagging DB nav prop refs?
 
 ### Optimizations
 - [ ] Implement lazy-loading
 - [ ] Individually import Bootstrap plugins *Needs exports-loader
 - [ ] Implement pagination of DB access
 - [ ] Implement UUIDs for DB entries
-- [ ] SPA: Integrate SSR
+- [ ] SPA: Gradually integrate SSR
+- [ ] Optimize Redux state slice allocation, via combineReducers?
 
 ### Dev Environment
-- [x] Fundamental stack set-up
+- [x] Fundamental stack set-up (React with Webpack and Babel, ASP.NET CORE, EF Core, MS SQL Server on Docker)
 - [x] Set up source maps + HMR
 - [ ] Set up BDD/TDD: Cucumber + Selenium + Jest
 - [x] Set up SCSS env (minifying, autoprefixer)
 - [x] Migrate to Typescript
 - [x] Add [React] Bootstrap
 - [x] Add React Router + React-Router-Bootstrap
-- [ ] Migrate to Redux
+- [x] Migrate to Redux + Redux-Saga
 - [ ] Implement reverse proxy server (Nginx)
 - [x] Implement Swagger API spec
 - [x] Migrate poster image to Cloudinary CDN
