@@ -1,11 +1,11 @@
-.movie-posters {
+.movie-posters-list--main {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
 }
 
-.movie-posters > * {
+.movie-posters-list--main > * {
     flex: 1 100%;
     display: flex;
 }
