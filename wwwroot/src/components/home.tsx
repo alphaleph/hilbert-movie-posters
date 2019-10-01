@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/components/home';
-import { MoviePosterList } from './movie-poster-list';
+import { ConnectedMoviePostersList } from './movie-posters-list';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,7 +15,7 @@ export function Home() {
                 <Container>
                     <Row className="mt-5">
                         <Col xs={12} md={8}>
-                            <MoviePosterList getMoviePostersUrl='/api/movieposters'/>
+                            <ConnectedMoviePostersList/>
                         </Col>
                         <Col xs={12} md={4}>
                             <Jumbotron className="home--jumbotron py-2 my--md-5">

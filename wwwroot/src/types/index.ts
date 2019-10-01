@@ -1,5 +1,6 @@
 import * as constants from '../redux/constants';
 import { IMovieData, IMoviePosterData, IReviewData } from './api_models';
+import { MapStateToProps, MapDispatchToProps } from 'react-redux';
 
 /*
 
@@ -12,11 +13,23 @@ export interface BaseAction {
     payload?: any
 }
 
-export interface GetMoviePostersAction {
+export interface ApiErrorAction {
+    type: constants.API_ERROR,
+    payload: Error
+}
+export interface RequestGetMoviePostersAction {
     type: constants.REQUEST_GET_MOVIE_POSTERS
 }
 
-/*
+export interface DataLoadedMoviePostersAction {
+    type: constants.DATA_LOADED_MOVIE_POSTERS,
+    payload: IMoviePosterData[]
+}
+
+export type MoviePostersApiAction = DataLoadedMoviePostersAction | ApiErrorAction | RequestGetMoviePostersAction | BaseAction;
+
+
+/* |  | BaseActionRequestGetMoviePostersAction
 
     Redux - Store Slices
 
@@ -77,9 +90,20 @@ export interface MainMoviePostersListUiState {
     Local Component Props
 
 */
-export interface MoviePosterListProps {
-    getMoviePostersUrl: string;
+
+export interface MoviePostersListOwnProps { }
+export interface MoviePostersListConnectStateProps {
+    moviePostersList: IMoviePosterData[],
+    listState: constants.UI_STATE
 }
+export interface MoviePostersListConnectDispatchProps {
+    requestGetMoviePosters: () => RequestGetMoviePostersAction
+}
+
+export type MoviePostersListProps = MoviePostersListOwnProps & MoviePostersListConnectStateProps & MoviePostersListConnectDispatchProps;
+// export type MoviePostersListConnectStateMapper = MapStateToProps<MoviePostersListConnectStateProps, MoviePostersListOwnProps, AppState>;
+// export type MoviePostersListDispatchStateMapper = MapDispatchToProps<MoviePostersListConnectDispatchProps, MoviePostersListOwnProps>;
+
 
 export interface MoviePosterProps {
     moviePosterName: string;

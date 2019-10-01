@@ -16,8 +16,7 @@ export const MoviePostersEntityReducer = (state: MoviePostersEntityState = initi
                         {
                             ...acc, 
                             [moviePoster.moviePosterId]: moviePoster
-                        }), 
-                        state
+                        }), {}
                     ),
                     allIds: action.payload.map( (mp: IMoviePosterData) => mp.moviePosterId )
                 }

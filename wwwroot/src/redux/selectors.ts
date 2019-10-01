@@ -1,4 +1,15 @@
 import { createSelector } from 'reselect';
+import { AppState, MoviePostersDict } from '../types/index';
+
+export const selectMoviePostersEntity = (state: AppState): MoviePostersDict => state.entities.moviePosters.byId;
+export const selectMainMoviePostersListIds = (state: AppState): number[] => state.ui.mainMoviePostersList.moviePosters;
+
+export const selectMoviePosters = createSelector(
+    [selectMoviePostersEntity, selectMainMoviePostersListIds],
+    (moviePostersEntity, mainMoviePostersListIds) => {
+        return mainMoviePostersListIds.map(id => moviePostersEntity[id])
+    }
+);
 
 // Example: 
 // const getMoviePosters = state => state.entities.moviePosters.AllIds;
@@ -50,8 +61,3 @@ import { createSelector } from 'reselect';
 // };
 
 // export default connect(makeMapState)(SomeComponent);
-
-// so...
-
-// export mapState;
-// export makeUniqueMapState;

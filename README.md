@@ -106,6 +106,7 @@ docker container stop movie-posters-db
 - [x] SPA: History API fallback
 - [ ] API: Complete API search capabilities
 - [ ] API: Lagging DB nav prop refs?
+- [ ] TS: Fix react-redux connect() typing (potential solution [here](https://gist.github.com/JaSpr/502084fd5989b53760d93148cf67d864))
 
 ### Optimizations
 - [ ] Implement lazy-loading
