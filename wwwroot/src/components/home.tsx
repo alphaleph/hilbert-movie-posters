@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 export function Home() {
     return (
         <main className="home">
-            <Container fluid="true" className="home--content">
+            <Container fluid className="home--content">
                 <h1 className="mt-3"><strong>Welcome to Hilbert.</strong></h1>
                 <h2 className="mt-3">Your center for the world of movie posters</h2>
                 <Container>
