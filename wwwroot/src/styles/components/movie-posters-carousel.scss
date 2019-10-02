@@ -1,0 +1,28 @@
+div.carousel, div.movie-posters-carousel--main, div.carousel-inner {
+    display: block;
+    width: inherit;
+    min-height: 85vh;
+    max-height: 100vh;
+    height: inherit;
+    background-color: black;
+    margin-bottom: 5vh;
+}
+
+div.carousel-item {
+    height: inherit;
+    min-height: 80vh;
+    margin-top: 1vh;
+    text-align: center;
+}
+
+img.movie-posters-carousel--image {
+    position: relative;
+    max-height: 70vh !important;
+    height: 70vh;
+}
+
+div.carousel-caption {
+    display: relative;
+    bottom: 2vh;
+    padding-bottom: 0;
+}

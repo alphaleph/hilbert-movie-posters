@@ -91,7 +91,9 @@ export interface MainMoviePostersListUiState {
 
 */
 
-export interface MoviePostersListOwnProps { }
+export interface MoviePostersListOwnProps { 
+    // imageLoadState: constants.UI_STATE
+}
 export interface MoviePostersListConnectStateProps {
     moviePostersList: IMoviePosterData[],
     listState: constants.UI_STATE
@@ -103,6 +105,22 @@ export interface MoviePostersListConnectDispatchProps {
 export type MoviePostersListProps = MoviePostersListOwnProps & MoviePostersListConnectStateProps & MoviePostersListConnectDispatchProps;
 // export type MoviePostersListConnectStateMapper = MapStateToProps<MoviePostersListConnectStateProps, MoviePostersListOwnProps, AppState>;
 // export type MoviePostersListDispatchStateMapper = MapDispatchToProps<MoviePostersListConnectDispatchProps, MoviePostersListOwnProps>;
+
+
+export interface MoviePostersCarouselOwnProps {
+    // imageLoadState: constants.UI_STATE;
+}
+
+export interface MoviePostersCarouselStateProps {
+    moviePostersList: IMoviePosterData[],
+    listState: constants.UI_STATE
+}
+
+export interface MoviePostersCarouselDispatchProps {
+    requestGetMoviePosters: () => RequestGetMoviePostersAction
+}
+
+export type MoviePostersCarouselProps = MoviePostersCarouselOwnProps & MoviePostersCarouselStateProps & MoviePostersCarouselDispatchProps;
 
 
 export interface MoviePosterProps {
