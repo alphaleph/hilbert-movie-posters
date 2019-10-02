@@ -1,0 +1,17 @@
+@import '../base/globals';
+
+.under-construction--content {
+    background-color: $background-color--interactive--primary;
+    padding-top: 2vh;
+    padding-bottom: 5vh;
+}
+
+.under-construction--page-title {
+    margin-top: 3vh;
+    font-weight: 700;
+    text-decoration: underline overline;
+}
+
+.under-construction--spinner-container {
+    background-color: $background-color--quaternary;
+}
