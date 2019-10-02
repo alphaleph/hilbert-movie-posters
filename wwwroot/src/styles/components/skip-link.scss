@@ -1,0 +1,14 @@
+@import '../base/globals';
+
+#skip-link {
+    @extend .hidden;
+}
+
+#skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    outline: solid #4F7DC2;
+    margin: .5vh;
+    padding: 0;
+}
