@@ -127,3 +127,7 @@ export interface MoviePosterProps {
     moviePosterName: string;
     moviePosterYear: number;
 }
+
+export interface UnderConstructionProps {
+    pageName: string;
+}
