@@ -18,12 +18,15 @@
     min-height: 6vh;
     max-height: 8vh;
     margin: .5em;
+
 }
 
 .logo-img {
     min-height: 3em;
     max-height: 8vh;
 }
+
+
 
 nav {
     @extend .initial-flex;
@@ -50,6 +53,7 @@ nav {
         ul {
             flex: 1 auto;
             flex-flow: row nowrap;
+            max-width: 33vw;
         }
     }
     .left-group { 
