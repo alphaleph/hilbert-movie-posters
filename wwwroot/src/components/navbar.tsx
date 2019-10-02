@@ -8,11 +8,11 @@ import { LinkContainer } from 'react-router-bootstrap';
 export function NavBar() {
     return (
         <nav className="app-block navbar--main">
-                <div className="nav-logo-container">
-                    <Link to="/">
-                        <img className="logo-img" alt="Movie Posters Homepage" src="../apple-touch-icon.png"/>
-                    </Link>
-                </div>
+            <div className="nav-logo-container">
+                <Link to="/">
+                    <img className="logo-img" alt="Movie Posters Homepage" src="../apple-touch-icon.png"/>
+                </Link>
+            </div>
             <ul className="left-group">
                 <li>
                     <LinkContainer to="/browse">
@@ -21,7 +21,7 @@ export function NavBar() {
                 </li>
                 <li>
                     <LinkContainer to="/add">
-                        <Button variant="secondary">Add A Movie</Button>
+                        <Button variant="secondary">Add A Poster</Button>
                     </LinkContainer>
                 </li>
             </ul>
