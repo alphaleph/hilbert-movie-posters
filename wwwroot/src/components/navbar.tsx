@@ -2,17 +2,12 @@ import React from 'react';
 import '../styles/components/navbar.scss';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap'; 
 
 
 export function NavBar() {
     return (
-        <nav className="navbar--main">
+        <nav className="app-block navbar--main">
                 <div className="nav-logo-container">
                     <Link to="/">
                         <img className="logo-img" alt="Movie Posters Homepage" src="../apple-touch-icon.png"/>

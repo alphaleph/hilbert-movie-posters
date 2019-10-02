@@ -3,6 +3,7 @@
 @import '../base/layout';
 
 .about--main {
+    @extend .app-block;
     background-color: $background-color--primary;
 }
 

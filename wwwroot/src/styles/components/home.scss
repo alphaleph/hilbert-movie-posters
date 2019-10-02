@@ -21,6 +21,27 @@
     background-color: $background-color--quaternary
 }
 
-.home--jumbotron {
+.jumbotron.home--jumbotron {
     font-size: 1.2em;
+    margin-top: 9vh;
+    margin-bottom: 7vh;
+    border-radius: 0;
+    padding-left: 10vh;
+    padding-right: 10vh;
+}
+
+.container-fluid.home--content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container.home--content-container {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
+
+.col.home--content-col {
+    padding: 0;
 }

@@ -7,8 +7,8 @@ Initial Layout
 */
 
 html, body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 #container, #app {
@@ -30,7 +30,7 @@ html, body {
     position: relative;
 }
 
-#app > * {
+.app-block {
     flex: 1 100%;
 }
 

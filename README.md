@@ -107,6 +107,7 @@ docker container stop movie-posters-db
 - [ ] API: Complete API search capabilities
 - [ ] API: Lagging DB nav prop refs?
 - [ ] TS: Fix react-redux connect() typing (potential solution [here](https://gist.github.com/JaSpr/502084fd5989b53760d93148cf67d864))
+- [ ] a11y: Carousel (indicators and auto-scroll control)
 
 ### Optimizations
 - [ ] Implement lazy-loading
