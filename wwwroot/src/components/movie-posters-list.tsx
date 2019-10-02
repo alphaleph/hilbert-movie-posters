@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { AppState, MoviePostersListProps } from '../types/index';
 import { IMoviePosterData } from '../types/api_models';
 import { UI_INIT, UI_LOADING, UI_LOADED, UI_ERROR } from '../redux/constants';
 import { selectMoviePosters } from '../redux/selectors';
 import { requestGetMoviePosters } from '../redux/actions';
+import { MoviePoster } from './movie-poster';
 import { ListEmpty } from './list-empty';
 import { Error } from './error';
 import { Whoops } from './whoops';
 import { Loading } from './loading';
-import { MoviePoster } from './movie-poster';
 import '../styles/components/movie-posters-list';
 
 const mapStateToProps  = (state: AppState) => {
@@ -34,7 +34,6 @@ export const MoviePostersList: React.FunctionComponent<MoviePostersListProps> = 
         case UI_ERROR:
             return <Error/>
         case UI_LOADED:
-            console.log(props);
             if (props.moviePostersList.length === 0) {
                 return <ListEmpty/>;
             }
