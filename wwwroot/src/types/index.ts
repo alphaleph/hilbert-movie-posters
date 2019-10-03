@@ -90,18 +90,18 @@ export interface MainMoviePostersListUiState {
     Local Component Props
 
 */
+export interface IAccessMoviePostersList {
+    moviePostersList: IMoviePosterData[],
+    listState: constants.UI_STATE
+}
 
 export interface MoviePostersListOwnProps { 
     // imageLoadState: constants.UI_STATE
 }
-export interface MoviePostersListConnectStateProps {
-    moviePostersList: IMoviePosterData[],
-    listState: constants.UI_STATE
-}
+export interface MoviePostersListConnectStateProps extends IAccessMoviePostersList {}
 export interface MoviePostersListConnectDispatchProps {
     requestGetMoviePosters: () => RequestGetMoviePostersAction
 }
-
 export type MoviePostersListProps = MoviePostersListOwnProps & MoviePostersListConnectStateProps & MoviePostersListConnectDispatchProps;
 // export type MoviePostersListConnectStateMapper = MapStateToProps<MoviePostersListConnectStateProps, MoviePostersListOwnProps, AppState>;
 // export type MoviePostersListDispatchStateMapper = MapDispatchToProps<MoviePostersListConnectDispatchProps, MoviePostersListOwnProps>;
@@ -109,18 +109,23 @@ export type MoviePostersListProps = MoviePostersListOwnProps & MoviePostersListC
 
 export interface MoviePostersCarouselOwnProps {
     // imageLoadState: constants.UI_STATE;
+    // carouselBufferSize: number;
 }
-
-export interface MoviePostersCarouselStateProps {
-    moviePostersList: IMoviePosterData[],
-    listState: constants.UI_STATE
-}
-
+export interface MoviePostersCarouselStateProps extends IAccessMoviePostersList {}
 export interface MoviePostersCarouselDispatchProps {
     requestGetMoviePosters: () => RequestGetMoviePostersAction
 }
-
 export type MoviePostersCarouselProps = MoviePostersCarouselOwnProps & MoviePostersCarouselStateProps & MoviePostersCarouselDispatchProps;
+
+
+export interface MoviePostersCardColumnsOwnProps { 
+    //cardColumnsBufferSize: number;
+}
+export interface MoviePostersCardColumnsStateProps extends IAccessMoviePostersList {}
+export interface MoviePostersCardColumnsDispatchProps {
+    requestGetMoviePosters: () => RequestGetMoviePostersAction
+}
+export type MoviePostersCardColumnsProps = MoviePostersCardColumnsOwnProps & MoviePostersCardColumnsStateProps & MoviePostersCardColumnsDispatchProps;
 
 
 export interface MoviePosterProps {
