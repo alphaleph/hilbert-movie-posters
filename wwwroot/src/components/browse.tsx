@@ -1,12 +1,15 @@
 import React from 'react';
 import '../styles/components/browse.scss';
 import Container from 'react-bootstrap/Container';
-import { UnderConstruction } from './under-construction';
+import Col from 'react-bootstrap/Col';
+import { ConnectedMoviePostersCardColumns } from './movie-posters-card-columns';
 
 export function Browse() {
     return (
-        <main className="my-2">
-            <UnderConstruction pageName="Browse"/>
-        </main>
+        <Container className="browse--container my-2">
+            <Col className="browse--content">
+                <ConnectedMoviePostersCardColumns/>
+            </Col>
+        </Container>
     );
 }
