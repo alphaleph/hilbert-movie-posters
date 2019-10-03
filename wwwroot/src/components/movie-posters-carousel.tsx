@@ -7,12 +7,13 @@ import { selectMoviePosters } from '../redux/selectors';
 import { requestGetMoviePosters } from '../redux/actions';
 import { ListEmpty } from './list-empty';
 import { Error } from './error';
-import { Whoops } from './whoops';
 import { Loading } from './loading';
 import Carousel from 'react-bootstrap/Carousel';
 import '../styles/components/movie-posters-carousel';
 
-const mapStateToProps  = (state: AppState) => {
+const CAROUSEL_BUFFER_SIZE: number = 10;
+
+const mapStateToProps = (state: AppState) => {
     return {
         moviePostersList: selectMoviePosters(state),
         listState: state.ui.mainMoviePostersList.state
@@ -32,12 +33,15 @@ export const MoviePostersCarousel: React.FunctionComponent<MoviePostersCarouselP
         case UI_INIT || UI_LOADING:
             return <Loading/>;
         case UI_ERROR:
-            return <Error/>
+            return <Error/>;
         case UI_LOADED:
             if (props.moviePostersList.length === 0) {
                 return <ListEmpty/>;
             }
-            const carouselItems = props.moviePostersList.map((mp: IMoviePosterData) => 
+            const moviePostersBuffer = (props.moviePostersList.length > CAROUSEL_BUFFER_SIZE )
+                                            ? props.moviePostersList.slice(0, CAROUSEL_BUFFER_SIZE) 
+                                            : props.moviePostersList;
+            const carouselItems = moviePostersBuffer.map((mp: IMoviePosterData) => 
                 <Carousel.Item key={mp.moviePosterId}>
                     <img className="movie-posters-carousel--image" alt={mp.name} src={mp.posterImageUrl}/>
                     <Carousel.Caption>
@@ -53,7 +57,7 @@ export const MoviePostersCarousel: React.FunctionComponent<MoviePostersCarouselP
                 </Carousel>
             );
         default:
-            return <Whoops/>
+            return <Loading/>
     }
 }
 
