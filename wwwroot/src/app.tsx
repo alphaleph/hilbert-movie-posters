@@ -13,8 +13,8 @@ import { Login } from './components/login';
 import { Signup } from './components/signup';
 import { PageNotFound } from './components/page-not-found';
 import { SkipLink } from './components/skip-link';
-import { ConnectedMoviePosterView } from './components/movie-poster-view';
-// import { MovieView } from './components/movie-view';
+import { MoviePosterView } from './components/movie-poster-view';
+import { MovieView } from './components/movie-view';
 import './styles/style.scss';
 import './styles/components/app';
 import 'bootstrap';
@@ -36,8 +36,8 @@ const App = () => {
                             <Route path="/login" component={Login} />
                             <Route path="/signup" component={Signup} />
                             <Route path="/about" component={About} />
-                            <Route path="/movie-posters" component={ConnectedMoviePosterView} />
-                            {/* <Route path="/movies" component={MovieView} /> */}
+                            <Route path="/view/movie-posters/:id" component={MoviePosterView} />
+                            <Route path="/view/movies/:id" component={MovieView} />
                             <Route component={PageNotFound} />
                         </Switch>
                     </main>

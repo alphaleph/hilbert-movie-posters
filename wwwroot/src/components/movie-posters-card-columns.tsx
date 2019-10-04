@@ -50,7 +50,7 @@ export const MoviePostersCardColumns: React.FunctionComponent<MoviePostersCardCo
                     <Card key={mp.moviePosterId} border="dark">
                         <Card.Img variant="top" src={mp.posterImageUrl}/>
                         <Card.Body>
-                            <LinkContainer className="link" tabIndex={0} to="/movie-posters">
+                            <LinkContainer className="link" tabIndex={0} to={`/view/movie-posters/${mp.moviePosterId}`}>
                                 <Card.Title>{mp.name}</Card.Title>
                             </LinkContainer>
                             <StarRatingComponent name={`Rating for ${mp.name} is ${mp.rating}`} value={mp.rating} editing={false}/>
