@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/browse.scss';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import { BrowserRouter as Switch, Route, RouteComponentProps } from 'react-router-dom';
+import { BrowserRouter as RouteComponentProps } from 'react-router-dom';
 import { MoviePostersCardColumns } from './movie-posters-card-columns';
 import { MoviesCardColumns } from './movies-card-columns';
 
