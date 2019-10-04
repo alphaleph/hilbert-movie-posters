@@ -15,7 +15,7 @@ export function NavBar() {
             </div>
             <ul className="left-group">
                 <li>
-                    <LinkContainer to="/browse">
+                    <LinkContainer to="/browse/movie-posters">
                         <Button variant="primary">Browse</Button>
                     </LinkContainer>
                 </li>

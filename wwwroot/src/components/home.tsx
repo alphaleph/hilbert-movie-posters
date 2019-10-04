@@ -22,7 +22,7 @@ export function Home() {
                             <h2 className="home--browser-banner-header"><strong>Take a look at our selection.</strong></h2>
                             <div className="home--browse-banner-button-group">
                                 <div className="home--browse-banner-button-wrapper">
-                                    <LinkContainer to="/browse">
+                                    <LinkContainer to="/browse/movie-posters">
                                         <Button variant="primary" size="lg" className="home--browse-banner-button">Browse Movie Posters</Button>
                                     </LinkContainer>
                                 </div>
