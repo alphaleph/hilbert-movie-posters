@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { UnderConstruction } from './under-construction';
 
-export const MoviesCardColumns = () => {
+export const DisconnectedMoviesCardColumns = () => {
     return (
         <Container>
             <UnderConstruction pageName="MoviesCardColumns"/>
@@ -10,4 +10,4 @@ export const MoviesCardColumns = () => {
     );
 }
 
-export const ConnectedMoviesCardColumns = MoviesCardColumns;
+export const MoviesCardColumns = DisconnectedMoviesCardColumns;

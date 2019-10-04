@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { MoviePostersCardColumnsProps, AppState } from '../types/index';
 import { IMoviePosterData } from '../types/api_models';
 import { selectMoviePosters } from '../redux/selectors';
@@ -28,7 +29,7 @@ const mapDispatchToProps = {
     requestGetMoviePosters
 }
 
-export const MoviePostersCardColumns: React.FunctionComponent<MoviePostersCardColumnsProps> = (props: MoviePostersCardColumnsProps) => {
+export const DisconnectedMoviePostersCardColumns: React.FunctionComponent<MoviePostersCardColumnsProps> = (props: MoviePostersCardColumnsProps) => {
 
     if (props.listState === UI_INIT) {
         props.requestGetMoviePosters();
@@ -67,4 +68,4 @@ export const MoviePostersCardColumns: React.FunctionComponent<MoviePostersCardCo
     }
 }
 
-export const ConnectedMoviePostersCardColumns = connect(mapStateToProps, mapDispatchToProps)(MoviePostersCardColumns);
+export const MoviePostersCardColumns = connect(mapStateToProps, mapDispatchToProps)(DisconnectedMoviePostersCardColumns);

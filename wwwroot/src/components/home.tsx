@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/components/home';
-import { ConnectedMoviePostersCarousel } from './movie-posters-carousel';
+import { MoviePostersCarousel } from './movie-posters-carousel';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -10,7 +10,7 @@ export function Home() {
     return (
             <Container fluid className="home home--content">
                 <Container className="home--content-container">
-                    <ConnectedMoviePostersCarousel/>
+                    <MoviePostersCarousel/>
                     <h1 className="mt-5"><strong>Welcome to Hilbert.</strong></h1>
                     <h2 className="mt-2">Your center for the world of movie posters</h2>
                     <Jumbotron className="home--jumbotron py-5">

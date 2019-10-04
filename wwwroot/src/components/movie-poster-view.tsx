@@ -22,7 +22,7 @@ const mapDispatchToProps = {
     requestGetMoviePosters
 }
 
-export const MoviePosterView: React.FunctionComponent<MoviePosterViewProps> = (props: MoviePosterViewProps) => {
+export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterViewProps> = (props: MoviePosterViewProps) => {
     
     if (props.listState === UI_INIT) {
         props.requestGetMoviePosters();
@@ -55,4 +55,4 @@ export const MoviePosterView: React.FunctionComponent<MoviePosterViewProps> = (p
     }
 }
 
-export const ConnectedMoviePosterView = connect(mapStateToProps, mapDispatchToProps)(MoviePosterView);
+export const MoviePosterView = connect(mapStateToProps, mapDispatchToProps)(DisconnectedMoviePosterView);

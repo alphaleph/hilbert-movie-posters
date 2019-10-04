@@ -23,7 +23,7 @@ const mapDispatchToProps = {
     requestGetMoviePosters
 }
 
-export const MoviePostersList: React.FunctionComponent<MoviePostersListProps> = (props: MoviePostersListProps) => {
+export const DisconnectedMoviePostersList: React.FunctionComponent<MoviePostersListProps> = (props: MoviePostersListProps) => {
     if (props.listState === UI_INIT) {
         props.requestGetMoviePosters();
     } 
@@ -56,4 +56,4 @@ export const MoviePostersList: React.FunctionComponent<MoviePostersListProps> = 
     }
 }
 
-export const ConnectedMoviePostersList = connect(mapStateToProps, mapDispatchToProps)(MoviePostersList as unknown as any);
+export const MoviePostersList = connect(mapStateToProps, mapDispatchToProps)(DisconnectedMoviePostersList as unknown as any);
