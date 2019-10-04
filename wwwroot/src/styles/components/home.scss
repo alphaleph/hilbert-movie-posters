@@ -22,9 +22,10 @@
 }
 
 .jumbotron.home--jumbotron {
+    display: block;
     font-size: 1.2em;
     margin-top: 9vh;
-    margin-bottom: 7vh;
+    margin-bottom: 0;
     border-radius: 0;
     padding-left: 10vh;
     padding-right: 10vh;
@@ -45,3 +46,45 @@
 .col.home--content-col {
     padding: 0;
 }
+
+.home--browse-banner {
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: $background-color--secondary;
+    text-align: center;
+}
+
+.home--browse-banner-content {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    background-color: $background-color--quaternary;
+    border-top: .5em inset brown;
+}
+
+.home--browse-banner-header {
+    max-width: 70vw;
+}
+
+.home--browse-banner-button-group {
+    margin-top: 8vh;
+}
+
+.home--browse-banner-button-wrapper {
+    display: block;
+    margin-top: 5vh;
+}
+
+a.home--browse-banner-button {
+    width: 40vw;
+    min-width: 12rem;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    font-weight: bold;
+}
+
+// @include breakpoint($screen-md-min) {
+//     .home--browse-banner {
+//         height: 45vh;
+//     }
+// }

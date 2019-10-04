@@ -13,6 +13,7 @@ $background-color__interactive--secondary: #E76846;
 $background-color__interactive--tertiary: #D6FFB7;
 $font-color--light: #F7F7F7;
 $font-color--dark: #1A1A1A;
+$outline-color--link--hover: #4F7DC2;
 
 /*
 ########################
@@ -39,6 +40,7 @@ h4, h5, h6 {
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
+
 /*
 ########################
 Utility
@@ -52,4 +54,13 @@ Utility
     width: 1px;
     height: 1px;
     overflow: hidden;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+.link:hover {
+    outline: solid;
+    outline-color: $outline-color--link--hover;
 }

@@ -128,6 +128,13 @@ export interface MoviePostersCardColumnsDispatchProps {
 export type MoviePostersCardColumnsProps = MoviePostersCardColumnsOwnProps & MoviePostersCardColumnsStateProps & MoviePostersCardColumnsDispatchProps;
 
 
+export interface MoviePosterViewOwnProps {}
+export interface MoviePosterViewStateProps extends IAccessMoviePostersList {}
+export interface MoviePosterViewDispatchProps {
+    requestGetMoviePosters: () => RequestGetMoviePostersAction
+}
+export type MoviePosterViewProps = MoviePosterViewOwnProps & MoviePosterViewStateProps & MoviePosterViewDispatchProps;
+
 export interface MoviePosterProps {
     moviePosterName: string;
     moviePosterYear: number;

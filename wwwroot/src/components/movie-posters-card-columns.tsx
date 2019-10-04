@@ -8,6 +8,7 @@ import { UI_INIT, UI_LOADING, UI_LOADED, UI_ERROR } from '../redux/constants';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns'
 import StarRatingComponent from 'react-star-rating-component';
+import { LinkContainer } from 'react-router-bootstrap';
 import { Loading } from './loading';
 import { Error } from './error';
 import { ListEmpty } from './list-empty';
@@ -45,14 +46,16 @@ export const MoviePostersCardColumns: React.FunctionComponent<MoviePostersCardCo
             const moviePostersBuffer = (props.moviePostersList.length > CARD_COLUMNS_BUFFER_SIZE) 
                                         ? props.moviePostersList.slice(0, CARD_COLUMNS_BUFFER_SIZE)
                                         : props.moviePostersList;
-            const cards = moviePostersBuffer.map((mp: IMoviePosterData) => 
-                <Card key={mp.moviePosterId} border="dark">
-                    <Card.Img variant="top" src={mp.posterImageUrl}/>
-                    <Card.Body>
-                        <Card.Title>{mp.name}</Card.Title>
-                        <StarRatingComponent name={`Rating for ${mp.name} is ${mp.rating}`} value={mp.rating} editing={false}/>
-                    </Card.Body>
-                </Card>
+            const cards = moviePostersBuffer.map((mp: IMoviePosterData) =>
+                    <Card key={mp.moviePosterId} border="dark">
+                        <Card.Img variant="top" src={mp.posterImageUrl}/>
+                        <Card.Body>
+                            <LinkContainer className="link" tabIndex={0} to="/movie-posters">
+                                <Card.Title>{mp.name}</Card.Title>
+                            </LinkContainer>
+                            <StarRatingComponent name={`Rating for ${mp.name} is ${mp.rating}`} value={mp.rating} editing={false}/>
+                        </Card.Body>
+                    </Card>
             );
             return (
                 <CardColumns>
