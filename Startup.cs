@@ -46,7 +46,8 @@ namespace movie_posters
                 app.UseDatabaseErrorPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true,
+                    HotModuleReplacementEndpoint = "/dist/__webpack_hmr"
                 });
             }
             else
