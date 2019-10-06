@@ -51,7 +51,7 @@ namespace movie_posters
                 });
             }
             else
-            {
+            { 
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
                 app.UseHttpsRedirection();
