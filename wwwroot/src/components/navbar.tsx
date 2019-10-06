@@ -10,7 +10,7 @@ export function NavBar() {
         <nav className="app-block navbar--main">
             <div className="nav-logo-container">
                 <Link to="/">
-                    <img className="logo-img" alt="Movie Posters Homepage" src="../apple-touch-icon.png"/>
+                    <img className="logo-img" alt="Movie Posters Homepage" src="/apple-touch-icon.png"/>
                 </Link>
             </div>
             <ul className="left-group">

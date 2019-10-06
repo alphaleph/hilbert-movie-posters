@@ -15,7 +15,7 @@ export function About() {
                     <Col className="text-center my-2">
                         <img
                             className="about-img"
-                            src="../le_voyage_dans_la_lune.png" 
+                            src="/le_voyage_dans_la_lune.png" 
                             alt="Le Voyage Dans La Lune - Moonface with Rocket in Eye"
                             height=""
                             />
