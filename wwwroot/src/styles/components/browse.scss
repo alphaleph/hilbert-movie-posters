@@ -1,1 +1,13 @@
 @import '../base/globals';
+@import '../base/mixins';
+@import '../base/layout';
+
+.browse__browse-by-movie-button {
+    text-align: center;
+}
+
+@include breakpoint($screen-md-min) {
+    .browse__browse-by-movie-button {
+        text-align: right;
+    }
+}
