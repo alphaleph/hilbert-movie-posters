@@ -21,26 +21,51 @@
     background-color: $background-color--quaternary
 }
 
-.jumbotron.home--jumbotron {
-    display: block;
-    font-size: 1.2em;
-    margin-top: 9vh;
-    margin-bottom: 0;
-    border-radius: 0;
-    padding-left: 10vh;
-    padding-right: 10vh;
-}
-
-.container-fluid.home--content {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .container.home--content-container {
     border: 0;
     padding: 0;
     margin: 0;
     max-width: 100%;
+}
+
+.home__title-banner {
+    background: $background-color--quinary;
+    h1, h2 {
+        color: $font-color--light;
+    }
+}
+
+.dark-step-line {
+    height: .5rem;
+    background-color: $background-color--senary;
+}
+
+.hilbert-curve {
+    background:  url(https://res.cloudinary.com/chaua0927/image/upload/v1570552863/hilbert-poster-images/wmscjhdwe3bydqotbl4y.png);
+}
+
+.jumbotron.home--jumbotron {
+    display: block;
+    text-align: center;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding-left: 10vh;
+    padding-right: 10vh;
+
+    h2 {
+        margin-bottom: 3vh;
+        font-weight: 600;
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+    }
+}
+
+.container-fluid.home--content {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .col.home--content-col {

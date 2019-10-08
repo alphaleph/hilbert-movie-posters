@@ -10,12 +10,16 @@ export function Home() {
     return (
             <Container fluid className="home home--content">
                 <Container className="home--content-container">
+                    <section className="home__title-banner">
+                        <h1 className="pt-5"><strong>Welcome to Hilbert.</strong></h1>
+                        <h2 className="pt-2 pb-5">Your center for the world of movie posters.</h2>
+                        <div className="dark-step-line"></div>
+                    </section>
                     <MoviePostersCarousel/>
-                    <h1 className="mt-5"><strong>Welcome to Hilbert.</strong></h1>
-                    <h2 className="mt-2">Your center for the world of movie posters</h2>
                     <Jumbotron className="home--jumbotron py-5">
-                        <h2><strong>Behind every great movie... <br/>is a great poster.</strong></h2>
-                        <p>Explore. Contribute to the discussion. Search for inspiration. <strong>Hilbert</strong> is your source and community for the time-honored art.</p>
+                        <h2>Behind every great movie... is a great poster.</h2>
+                        <p>Explore. Contribute to the discussion. Search for inspiration.</p>
+                        <p><strong>Hilbert</strong> is your source and community for the time-honored art.</p>
                     </Jumbotron>
                     <section className="home--browse-banner py-5">
                         <Container className="home--browse-banner-content">
