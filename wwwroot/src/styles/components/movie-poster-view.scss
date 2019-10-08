@@ -1,5 +1,47 @@
 @import '../base/globals';
+@import '../base/mixins';
+@import '../base/layout';
 
-.movie-poster-view--content {
-    background-color: $background-color--secondary;
+.breadcrumb {
+    background-color: transparent !important;
+    a {
+        color: $font-color__link--dark;
+        text-decoration: underline;
+    }
+}
+
+.movie-poster-view__header {
+    text-decoration: underline;
+    margin-top: 1em;
+}
+
+.movie-poster-view__info-header {
+    @extend .movie-poster-view__header;
+
+}
+
+.movie-poster-view__info-container {
+    margin-top: 2em;
+}
+
+.dv-star-rating {
+    margin-top: 1em;
+}
+
+.movie-poster-view__info-text {
+    font-size: 1.5em;
+}
+
+@include breakpoint($screen-md-min) {
+    .movie-poster-view__header {
+        margin-top: 0;
+    }
+
+    .movie-poster-view__info-header {
+        margin-top: 1rem;
+    }
+
+    .movie-poster-view__info-container {
+        margin-top: 0;
+    }
 }

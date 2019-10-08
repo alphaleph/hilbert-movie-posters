@@ -1,6 +1,7 @@
 import * as constants from '../redux/constants';
 import { IMovieData, IMoviePosterData, IReviewData } from './api_models';
 import { MapStateToProps, MapDispatchToProps } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 
 /*
 
@@ -128,8 +129,11 @@ export interface MoviePostersCardColumnsDispatchProps {
 export type MoviePostersCardColumnsProps = MoviePostersCardColumnsOwnProps & MoviePostersCardColumnsStateProps & MoviePostersCardColumnsDispatchProps;
 
 
-export interface MoviePosterViewOwnProps {}
-export interface MoviePosterViewStateProps extends IAccessMoviePostersList {}
+type TParams = { id: string };
+export interface MoviePosterViewOwnProps extends RouteComponentProps<TParams> {};
+export interface MoviePosterViewStateProps extends IAccessMoviePostersList {
+    availableMoviePosters: number[]
+}
 export interface MoviePosterViewDispatchProps {
     requestGetMoviePosters: () => RequestGetMoviePostersAction
 }
