@@ -93,7 +93,7 @@ docker container stop movie-posters-db
 <!-- ROADMAP -->
 ## Roadmap
 
-### Features
+### User Features
 - [x] View List of Movie Posters
 - [ ] Base UI Design + Icon
 - [ ] Add Animations/Transitions
@@ -101,6 +101,15 @@ docker container stop movie-posters-db
 - [ ] CRUD Comments
 - [ ] Movie Poster Search
 - [ ] Account Management
+
+### Backend Features
+- [x] Fundamental stack set-up (React with Webpack and Babel, ASP.NET CORE, EF Core, MS SQL Server on Docker)
+- [x] Add [React] Bootstrap
+- [x] Add React Router + React-Router-Bootstrap
+- [x] Migrate to Redux + Redux-Saga
+- [ ] Implement reverse proxy server (Nginx)
+- [x] Implement Swagger API spec
+- [x] Migrate poster image to Cloudinary CDN
 
 ### Technical Fixes
 - [x] SPA: History API fallback
@@ -117,19 +126,14 @@ docker container stop movie-posters-db
 - [ ] Implement UUIDs for DB entries
 - [ ] SPA: Gradually integrate SSR
 - [ ] Optimize Redux state slice allocation, via combineReducers?
+- [ ] SPA: More graceful error-handling from server errors?
+- [ ] SCSS: Organize animations as mixins
 
 ### Dev Environment
-- [x] Fundamental stack set-up (React with Webpack and Babel, ASP.NET CORE, EF Core, MS SQL Server on Docker)
 - [x] Set up source maps + HMR
 - [ ] Set up BDD/TDD: Cucumber + Selenium + Jest
 - [x] Set up SCSS env (minifying, autoprefixer)
 - [x] Migrate to Typescript
-- [x] Add [React] Bootstrap
-- [x] Add React Router + React-Router-Bootstrap
-- [x] Migrate to Redux + Redux-Saga
-- [ ] Implement reverse proxy server (Nginx)
-- [x] Implement Swagger API spec
-- [x] Migrate poster image to Cloudinary CDN
 
 ## License
 
