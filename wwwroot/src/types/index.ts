@@ -184,6 +184,15 @@ export interface MoviePosterViewDispatchProps {
 }
 export type MoviePosterViewProps = MoviePosterViewOwnProps & MoviePosterViewStateProps & MoviePosterViewDispatchProps;
 
+
+export interface MoviePosterInfoProps {
+    rating: number, 
+    ratingCount: number, 
+    artist: string, 
+    year: number
+}
+
+
 export interface MoviePosterProps {
     moviePosterName: string;
     moviePosterYear: number;

@@ -12,9 +12,9 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { Breadcrumb } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import StarRatingComponent from 'react-star-rating-component';
 import { Loading } from './loading';
 import { Error } from './error';
+import { MoviePosterInfo } from './movie-poster-info';
 import { ReviewsList } from './reviews-list';
 import { DeleteModal } from './delete-modal';
 import '../styles/components/movie-poster-view.scss';
@@ -69,27 +69,8 @@ export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterVie
                     <Row>
                         <Col md={7} className="text-center">
                             <Image fluid alt={mp.name} src={mp.posterImageUrl}/>
-                            <Container className="movie-poster-view__info-container my-3 px-4 py-2">
-                                <Row>
-                                    <Col>
-                                        <StarRatingComponent name="Sample rating" value={mp.rating}/>
-                                    </Col>
-                                    <Col>
-                                        <p className="movie-poster-view__info-text ">Total Ratings: {mp.ratingCount}</p>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <h3 className="movie-poster-view__info-header">Artist</h3>
-                                        <p className="movie-poster-view__info-text">{mp.artist}</p>
-                                    </Col>
-                                    <Col>
-                                        <h3 className="movie-poster-view__info-header">Year</h3>
-                                        <p className="movie-poster-view__info-text">{mp.year}</p>
-                                    </Col>
-                                </Row>
-                                <Button variant="outline-danger" onClick={showDeleteModal}>Delete Movie Poster</Button>
-                            </Container>
+                            <MoviePosterInfo rating={mp.rating} ratingCount={mp.ratingCount} artist={mp.artist} year={mp.year}/>
+                            <Button variant="outline-danger" onClick={showDeleteModal}>Delete Movie Poster</Button>
                         </Col>
                         <Col md={5}>
                             <h2 className="movie-poster-view__header">Reviews</h2>
