@@ -18,7 +18,7 @@ import { MovieView } from './components/movie-view';
 import './styles/style.scss';
 import './styles/components/app';
 import 'bootstrap';
-import { ScrollToTop } from './components/scroll-to-top';
+library.add(faCat);
 
 const App = () => {
     return (
