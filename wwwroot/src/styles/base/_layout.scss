@@ -1,41 +1,10 @@
 @import './mixins';
 
-/*
-########################
-Initial Layout
-########################
-*/
-
-html, body {
-    padding: 0;
-    margin: 0;
-}
-
-html {
-    height: 100vh;
-}
-
-body {
-    min-height: 100vh;
-}
-
-#container, #app {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 .initial-flex {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-}
-
-#app {
-    @extend .initial-flex;
-    position: relative;
 }
 
 .app-block {

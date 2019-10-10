@@ -19,33 +19,6 @@ $font-color--dark: #1A1A1A;
 $font-color__link--dark: #4F7DC2;
 $outline-color--link--hover: #4F7DC2;
 
-
-/*
-########################
-Font
-########################
-*/
-
-html, body {
-    line-height: 1.5;
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-p, a, span {
-    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
-}
-
-h1, h2, h3,
-h4, h5, h6 {
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
-}
-
-
 /*
 ########################
 Utility

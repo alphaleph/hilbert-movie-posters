@@ -1,0 +1,58 @@
+@import './layout';
+
+/*
+########################
+Initial Layout
+########################
+*/
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#container, #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    @extend .initial-flex;
+    position: relative;
+}
+
+
+/*
+########################
+Font
+########################
+*/
+
+html, body {
+    line-height: 1.5;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+p, a, span {
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
