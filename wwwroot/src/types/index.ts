@@ -1,5 +1,5 @@
 import * as constants from '../redux/constants';
-import { IMovieData, IMoviePosterData, IReviewData } from './api_models';
+import { IMovieData, IMoviePosterData, IReviewData, IApiError } from './api_models';
 import { MapStateToProps, MapDispatchToProps } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
@@ -16,8 +16,13 @@ export interface BaseAction {
 
 export interface ApiErrorAction {
     type: constants.API_ERROR,
-    payload: Error
+    payload: IApiError
 }
+
+export interface ApiRecoverAction {
+    type: constants.API_RECOVER
+}
+
 export interface RequestGetMoviePostersAction {
     type: constants.REQUEST_GET_MOVIE_POSTERS
 }
@@ -27,7 +32,8 @@ export interface DataLoadedMoviePostersAction {
     payload: IMoviePosterData[]
 }
 
-export type MoviePostersApiAction = DataLoadedMoviePostersAction | ApiErrorAction | RequestGetMoviePostersAction | BaseAction;
+export type MoviePostersApiAction = ApiErrorAction | DataLoadedMoviePostersAction | 
+                                        ApiRecoverAction | RequestGetMoviePostersAction | BaseAction;
 
 
 /* |  | BaseActionRequestGetMoviePostersAction
@@ -83,7 +89,8 @@ export interface UiGlobalsState {
 
 export interface MainMoviePostersListUiState {
     moviePosters: number[],
-    state: constants.UI_STATE
+    state: constants.UI_STATE,
+    error: IApiError
 }
 
 /*
@@ -146,4 +153,10 @@ export interface MoviePosterProps {
 
 export interface UnderConstructionProps {
     pageName: string;
+}
+
+export interface ErrorProps {
+    error: IApiError
+    history: history.History
+    apiRecover: () => ApiRecoverAction
 }

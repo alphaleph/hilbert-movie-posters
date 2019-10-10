@@ -1,24 +1,58 @@
-import { RequestGetMoviePostersAction, DataLoadedMoviePostersAction, ApiErrorAction } from '../types/index';
-import { REQUEST_POST_MOVIE_POSTER, REQUEST_GET_MOVIE_POSTERS, DATA_LOADED_MOVIE_POSTERS, API_ERROR } from './constants';
-import { IMoviePosterData } from '../types/api_models';
+import * as types from '../types/index';
+import * as constants from './constants';
+import { IMoviePosterData, IApiError } from '../types/api_models';
 
-export const requestGetMoviePosters = (): RequestGetMoviePostersAction => {
+
+export const apiError = (e: IApiError): types.ApiErrorAction => {
+    return {
+        type: constants.API_ERROR,
+        payload: e
+    }
+}
+
+export const apiRecover = (): types.ApiRecoverAction => {
+    return {
+        type: constants.API_RECOVER
+    }
+}
+
+export const requestGetMoviePosters = (): types.RequestGetMoviePostersAction => {
     return { 
-        type: REQUEST_GET_MOVIE_POSTERS,
+        type: constants.REQUEST_GET_MOVIE_POSTERS
     };
 }
 
-export const dataLoadedMoviePosters = (data: IMoviePosterData[]): DataLoadedMoviePostersAction => {
+export const dataLoadedMoviePosters = (data: IMoviePosterData[]): types.DataLoadedMoviePostersAction => {
     return {
-        type: DATA_LOADED_MOVIE_POSTERS, 
+        type: constants.DATA_LOADED_MOVIE_POSTERS, 
         payload: data
     }
 }
 
-export const apiError = (e: Error): ApiErrorAction => {
+export const requestGetMoviePoster = (id: number): types.RequestGetMoviePosterAction => {
     return {
-        type: API_ERROR,
-        payload: e
+        type: constants.REQUEST_GET_MOVIE_POSTER,
+        payload: id
+    }
+}
+
+export const dataLoadedMoviePoster = (data: IMoviePosterData): types.DataLoadedMoviePosterAction => {
+    return {
+        type: constants.DATA_LOADED_MOVIE_POSTER,
+        payload: data
+    }
+}
+
+export const requestDeleteMoviePoster = (id: number): types.RequestDeleteMoviePosterAction => {
+    return {
+        type: constants.REQUEST_DELETE_MOVIE_POSTER,
+        payload: id
+    }
+}
+
+export const deletedMoviePoster = (): types.DeletedMoviePosterAction => {
+    return {
+        type: constants.DELETED_MOVIE_POSTER,
     }
 }
 

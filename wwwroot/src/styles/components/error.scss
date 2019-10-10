@@ -1,5 +1,24 @@
 @import '../base/globals';
+@import '../base/animations';
 
-.error--main {
-    background-color: $background-color__interactive--secondary;
+.error__content {
+    padding-top: 2vh;
+    padding-bottom: 5vh;
+}
+
+.error__page-title {
+    margin-top: 5vh;
+    color: #DA3925;
+    font-weight: 700;
+    text-decoration: overline;
+}
+
+.error__reload-back-button {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+}
+
+.error__icon {
+    animation-name: popin;
+    animation-duration: 1.2s;
 }
