@@ -2,10 +2,21 @@
 
 #app {
     background-color: $background-color--primary;
+    margin: 0;
+    padding: 0;
+}
+
+#main-container {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+.main__col {
+    padding: 0;
 }
 
 #main-content {
     background-color: $background-color--quaternary;
     min-height: 70vh;
-    width: 100vw;
 }

@@ -38,7 +38,7 @@ export const DisconnectedMoviePostersCardColumns: React.FunctionComponent<MovieP
         case UI_INIT || UI_LOADING:
             return <Loading/>;
         case UI_ERROR:
-                return <Error/>;
+                return <Error history={props.history}/>;
         case UI_LOADED:
             if (props.moviePostersList.length === 0) {
                 return <ListEmpty/>;
