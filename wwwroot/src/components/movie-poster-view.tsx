@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { AppState, MoviePosterViewProps } from '../types/index';
 import { IMoviePosterData } from '../types/api_models';
-import { requestGetMoviePosters } from '../redux/actions';
+import { requestGetMoviePosters, requestGetMoviePoster } from '../redux/actions';
 import { UI_INIT, UI_LOADING, UI_LOADED, UI_ERROR } from '../redux/constants';
 import { selectMoviePosters } from '../redux/selectors';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import { Breadcrumb } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
 import { Loading } from './loading';
 import { Error } from './error';
 import { ReviewsList } from './reviews-list';
+import { DeleteModal } from './delete-modal';
 import '../styles/components/movie-poster-view.scss';
-import { Breadcrumb } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
 
 const mapStateToProps = (state: AppState) => {
     return {
@@ -26,33 +28,38 @@ const mapStateToProps = (state: AppState) => {
 }
 
 const mapDispatchToProps = {
-    requestGetMoviePosters
+    requestGetMoviePosters,
+    requestGetMoviePoster
 }
 
 export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterViewProps> = (props: MoviePosterViewProps) => {
-    
-    // if (props.listState === UI_INIT) {
-    //     console.log("Requesting....");
-    //     props.requestGetMoviePosters();
-    // }
+    const [isShowDelete, setIsShowDelete] = useState(false);
+
+    const showDeleteModal = () => setIsShowDelete(true);
+    const hideDeleteModal = () => setIsShowDelete(false);
+
+    if (props.listState === UI_INIT) {
+        props.requestGetMoviePosters();
+    }
 
     switch (props.listState) {
         case UI_INIT || UI_LOADING:
             return <Loading/>;
         case UI_ERROR:
-            return <Error/>;
+            return <Error history={props.history}/>;
         case UI_LOADED:
-            //TODO: Check for individual movie poster in state based on moviePosterId in URL, if not present, then download    
-            // if (props.availableMoviePosters.includes(parseInt(props.match.params.id))) {
-                const mp: IMoviePosterData | undefined = props.moviePostersList.find(mp => mp.moviePosterId === parseInt(props.match.params.id, 10));
-            // }
+            if (!props.availableMoviePosters.includes(parseInt(props.match.params.id))) {
+                props.requestGetMoviePoster(parseInt(props.match.params.id));
+                return <Loading/>;
+            }
+            const mp: IMoviePosterData | undefined = props.moviePostersList.find(mp => mp.moviePosterId === parseInt(props.match.params.id, 10));
             if (mp === undefined) {
-                return <Error/>;
+                return <Error history={props.history}/>;
             }
 
             return (
                 <Container className="movie-poster-view__container my-2">
-                    <Breadcrumb className="movie-poster-view__breadcrumb">
+                    <Breadcrumb className="pt-2 movie-poster-view__breadcrumb">
                         <LinkContainer to="/browse/movie-posters">
                             <Breadcrumb.Item>Browse Movie Posters</Breadcrumb.Item>
                         </LinkContainer>
@@ -81,6 +88,7 @@ export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterVie
                                         <p className="movie-poster-view__info-text">{mp.year}</p>
                                     </Col>
                                 </Row>
+                                <Button variant="outline-danger" onClick={showDeleteModal}>Delete Movie Poster</Button>
                             </Container>
                         </Col>
                         <Col md={5}>
@@ -88,6 +96,7 @@ export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterVie
                             <ReviewsList/>
                         </Col>
                     </Row>
+                    <DeleteModal show={isShowDelete} onHide={hideDeleteModal}/>
                 </Container>
             );
         default:

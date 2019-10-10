@@ -2,6 +2,8 @@ import * as constants from '../redux/constants';
 import { IMovieData, IMoviePosterData, IReviewData, IApiError } from './api_models';
 import { MapStateToProps, MapDispatchToProps } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
+import { ModalProps } from 'react-bootstrap';
+import * as history from 'history';
 
 /*
 
@@ -35,6 +37,28 @@ export interface DataLoadedMoviePostersAction {
 export type MoviePostersApiAction = ApiErrorAction | DataLoadedMoviePostersAction | 
                                         ApiRecoverAction | RequestGetMoviePostersAction | BaseAction;
 
+
+export interface RequestGetMoviePosterAction {
+    type: constants.REQUEST_GET_MOVIE_POSTER
+    payload: number
+}
+
+export interface DataLoadedMoviePosterAction {
+    type: constants.DATA_LOADED_MOVIE_POSTER,
+    payload: IMoviePosterData
+}
+
+export interface RequestDeleteMoviePosterAction {
+    type: constants.REQUEST_DELETE_MOVIE_POSTER,
+    payload: number
+}
+
+export interface DeletedMoviePosterAction {
+    type: constants.DELETED_MOVIE_POSTER
+}
+
+export type MoviePosterApiAction = ApiErrorAction |  DataLoadedMoviePosterAction | RequestGetMoviePosterAction |
+                                    RequestDeleteMoviePosterAction | ApiRecoverAction | DeletedMoviePosterAction | BaseAction;
 
 /* |  | BaseActionRequestGetMoviePostersAction
 
@@ -104,7 +128,8 @@ export interface IAccessMoviePostersList {
 }
 
 export interface MoviePostersListOwnProps { 
-    // imageLoadState: constants.UI_STATE
+    // imageLoadState: constants.UI_STATE,
+    history: history.History
 }
 export interface MoviePostersListConnectStateProps extends IAccessMoviePostersList {}
 export interface MoviePostersListConnectDispatchProps {
@@ -115,7 +140,7 @@ export type MoviePostersListProps = MoviePostersListOwnProps & MoviePostersListC
 // export type MoviePostersListDispatchStateMapper = MapDispatchToProps<MoviePostersListConnectDispatchProps, MoviePostersListOwnProps>;
 
 
-export interface MoviePostersCarouselOwnProps {
+export interface MoviePostersCarouselOwnProps extends RouteComponentProps {
     // imageLoadState: constants.UI_STATE;
     // carouselBufferSize: number;
 }
@@ -127,7 +152,8 @@ export type MoviePostersCarouselProps = MoviePostersCarouselOwnProps & MoviePost
 
 
 export interface MoviePostersCardColumnsOwnProps { 
-    //cardColumnsBufferSize: number;
+    //cardColumnsBufferSize: number,
+    history: history.History
 }
 export interface MoviePostersCardColumnsStateProps extends IAccessMoviePostersList {}
 export interface MoviePostersCardColumnsDispatchProps {
@@ -136,13 +162,25 @@ export interface MoviePostersCardColumnsDispatchProps {
 export type MoviePostersCardColumnsProps = MoviePostersCardColumnsOwnProps & MoviePostersCardColumnsStateProps & MoviePostersCardColumnsDispatchProps;
 
 
+export interface MoviesCardColumnsOwnProps { 
+    //cardColumnsBufferSize: number,
+    history: history.History;
+}
+// export interface MoviesCardColumnsStateProps extends IAccessMoviePostersList {}
+// export interface MoviersCardColumnsDispatchProps {
+//     requestGetMoviePosters: () => RequestGetMoviePostersAction
+// }
+export type MoviesCardColumnsProps = MoviePostersCardColumnsOwnProps //& MoviePostersCardColumnsStateProps & MoviePostersCardColumnsDispatchProps;
+
+
 type TParams = { id: string };
 export interface MoviePosterViewOwnProps extends RouteComponentProps<TParams> {};
 export interface MoviePosterViewStateProps extends IAccessMoviePostersList {
     availableMoviePosters: number[]
 }
 export interface MoviePosterViewDispatchProps {
-    requestGetMoviePosters: () => RequestGetMoviePostersAction
+    requestGetMoviePosters: () => RequestGetMoviePostersAction,
+    requestGetMoviePoster: (id: number) => RequestGetMoviePosterAction
 }
 export type MoviePosterViewProps = MoviePosterViewOwnProps & MoviePosterViewStateProps & MoviePosterViewDispatchProps;
 
@@ -150,6 +188,8 @@ export interface MoviePosterProps {
     moviePosterName: string;
     moviePosterYear: number;
 }
+
+export interface DeleteModalProps extends ModalProps {}
 
 export interface UnderConstructionProps {
     pageName: string;
