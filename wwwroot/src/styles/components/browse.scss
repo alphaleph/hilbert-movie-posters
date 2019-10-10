@@ -2,6 +2,16 @@
 @import '../base/mixins';
 @import '../base/layout';
 
+.breadcrumb {
+    background-color: transparent !important;
+}
+
+.browse__content {
+    h1 {
+        text-decoration: underline;
+    }
+}
+
 .browse__browse-by-movie-button {
     text-align: center;
 }

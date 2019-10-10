@@ -1,0 +1,31 @@
+@keyframes popin {
+    from {
+        height: 0em;
+    }
+
+    50% {
+        height: .5em;
+    }
+
+    70% {
+        height: 1.5em;
+    }
+
+    to {
+        height: 1em;
+    }
+}
+
+@keyframes bounce-font {
+    from {
+        font-size: 0rem;
+    }
+
+    50% {
+        font-size: 5rem;
+    }
+
+    to {
+        font-size: 3rem;
+    }
+}

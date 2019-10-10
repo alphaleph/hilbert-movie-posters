@@ -1,5 +1,14 @@
 @import '../base/globals';
 
-.whoops--main {
-    background-color: $background-color__interactive--secondary;
+.whoops__caption {
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+.whoops__caption-whale {
+    color: navy;
+    font-weight: 700;
+    display: inline;
+    animation-name: bounce-font;
+    animation-duration: 1s;
 }
