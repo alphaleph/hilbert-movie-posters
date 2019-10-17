@@ -1,7 +1,7 @@
 @import '../base/layout';
 @import '../base/globals';
 
-.navbar--main {
+.navbar__main {
     background-color: $background-color--primary;
     display: flex;
     flex-flow: column nowrap;
@@ -10,7 +10,7 @@
     flex: 1 100%;
 }
 
-.nav-logo-container {
+.nav__logo-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -46,7 +46,7 @@ nav {
 }
 
 @include breakpoint($screen-sm-min) {
-    .navbar--main {
+    .navbar__main {
         flex-flow: row nowrap;
         justify-content: space-evenly;
 
@@ -60,7 +60,7 @@ nav {
         order: 0; 
         justify-content: flex-start;
     }
-    .nav-logo-container { 
+    .nav__logo-container { 
         order: 1;
         flex: 1 auto;
         flex-flow: row nowrap;

@@ -5,7 +5,7 @@ import './about';
 
 export function SiteMap() {
     return (
-        <nav className="app-block site-map--main py-5">
+        <nav className="app-block site-map__main py-5">
             <ul>
                 <li>
                     <Link to="/about">About</Link>

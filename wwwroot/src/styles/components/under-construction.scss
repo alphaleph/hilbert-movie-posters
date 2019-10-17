@@ -1,17 +1,17 @@
 @import '../base/globals';
 
-.under-construction--content {
+.under-construction__content {
     background-color: $background-color--interactive--primary;
     padding-top: 2vh;
     padding-bottom: 5vh;
 }
 
-.under-construction--page-title {
+.under-construction__page-title {
     margin-top: 3vh;
     font-weight: 700;
     text-decoration: underline overline;
 }
 
-.under-construction--spinner-container {
+.under-construction__spinner-container {
     background-color: $background-color--quaternary;
 }

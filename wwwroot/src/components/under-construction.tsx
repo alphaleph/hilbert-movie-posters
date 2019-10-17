@@ -6,12 +6,12 @@ import '../styles/components/under-construction';
 
 export const UnderConstruction = (props: UnderConstructionProps) => {
     return (
-        <Container className="under-construction--content">
-            <h1 className="under-construction--page-title">{props.pageName + ' Page'}</h1>
+        <Container className="under-construction__content">
+            <h1 className="under-construction__page-title">{props.pageName + ' Page'}</h1>
             <h2 className="py-4">
                 Sorry, under construction!
             </h2>
-            <Container className="under-construction--spinner-container py-5">
+            <Container className="under-construction__spinner-container py-5">
                 <FoldingCube/>
                 <h1>
                     Pardon the dust...

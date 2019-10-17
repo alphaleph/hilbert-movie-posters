@@ -7,8 +7,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 export function NavBar() {
     return (
-        <nav className="app-block navbar--main">
-            <div className="nav-logo-container">
+        <nav className="app-block navbar__main">
+            <div className="nav__logo-container">
                 <Link to="/">
                     <img className="logo-img" alt="Movie Posters Homepage" src="/apple-touch-icon.png"/>
                 </Link>

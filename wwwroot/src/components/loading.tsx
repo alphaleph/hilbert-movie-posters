@@ -5,7 +5,7 @@ import '../styles/components/loading';
 
 export const Loading = () => {
     return (
-        <Container className="loading--main py-5">
+        <Container className="loading__main py-5">
             <FoldingCube/>
             <h1>
                 Loading...

@@ -2,30 +2,30 @@
 @import '../base/mixins';
 @import '../base/layout';
 
-.about--main {
+.about__main {
     @extend .app-block;
     background-color: $background-color--primary;
 }
 
-.about-img {
+.about__img {
     max-height: 40vh;
 }
 
-.quote-citation {
+.about__quote-citation {
     text-align: right;
 }
 
-.about-text {
+.about__text {
     font-size: 1.2em;
 }
 
-.about--container {
+.about__container {
     background-color: $background-color--quaternary;
     border-radius: 10% 15%;
 }
 
 @include breakpoint($screen-sm-min) {
-    .about-text {
+    .about__text {
         text-align: left;
     }
 }

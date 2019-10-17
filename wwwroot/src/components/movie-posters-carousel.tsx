@@ -43,7 +43,7 @@ export const DisconnectedMoviePostersCarousel: React.FunctionComponent<MoviePost
                                             : props.moviePostersList;
             const carouselItems = moviePostersBuffer.map((mp: IMoviePosterData) => 
                 <Carousel.Item key={mp.moviePosterId}>
-                    <img className="movie-posters-carousel--image" alt={mp.name} src={mp.posterImageUrl}/>
+                    <img className="movie-posters-carousel__image" alt={mp.name} src={mp.posterImageUrl}/>
                     <Carousel.Caption>
                         <h3>
                             {`${mp.name} (${mp.year})`}
@@ -52,7 +52,7 @@ export const DisconnectedMoviePostersCarousel: React.FunctionComponent<MoviePost
                 </Carousel.Item>
             );
             return (
-                <Carousel nextLabel="Next movie poster" prevLabel="Previous movie poster" className="movie-posters-carousel--main">
+                <Carousel nextLabel="Next movie poster" prevLabel="Previous movie poster" className="movie-posters-carousel__main">
                     {carouselItems}
                 </Carousel>
             );

@@ -1,4 +1,4 @@
-div.carousel, div.movie-posters-carousel--main, div.carousel-inner {
+div.carousel, div.movie-posters-carousel__main, div.carousel-inner {
     display: block;
     width: inherit;
     min-height: 85vh;
@@ -14,7 +14,7 @@ div.carousel-item {
     text-align: center;
 }
 
-img.movie-posters-carousel--image {
+img.movie-posters-carousel__image {
     position: relative;
     max-height: 70vh !important;
     height: 70vh;

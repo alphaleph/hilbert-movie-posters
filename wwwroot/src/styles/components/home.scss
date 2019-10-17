@@ -17,11 +17,11 @@
     text-align: center;
 }
 
-.home--content {
+.home__content {
     background-color: $background-color--quaternary
 }
 
-.container.home--content-container {
+.container.home__content-container {
     border: 0;
     padding: 0;
     margin: 0;
@@ -44,7 +44,7 @@
     background:  url(https://res.cloudinary.com/chaua0927/image/upload/v1570552863/hilbert-poster-images/wmscjhdwe3bydqotbl4y.png);
 }
 
-.jumbotron.home--jumbotron {
+.jumbotron.home__jumbotron {
     display: block;
     text-align: center;
     margin-bottom: 0;
@@ -63,16 +63,16 @@
     }
 }
 
-.container-fluid.home--content {
+.container-fluid.home__content {
     padding-left: 0;
     padding-right: 0;
 }
 
-.col.home--content-col {
+.col.home__content-col {
     padding: 0;
 }
 
-.home--browse-banner {
+.home__browse-banner {
     position: relative;
     width: auto;
     height: auto;
@@ -80,27 +80,27 @@
     text-align: center;
 }
 
-.home--browse-banner-content {
+.home__browse-banner-content {
     padding-top: 3vh;
     padding-bottom: 3vh;
     background-color: $background-color--quaternary;
     border-top: .5em inset $background-color--secondary;
 }
 
-.home--browse-banner-header {
+.home__browse-banner-header {
     max-width: 70vw;
 }
 
-.home--browse-banner-button-group {
+.home__browse-banner-button-group {
     margin-top: 8vh;
 }
 
-.home--browse-banner-button-wrapper {
+.home__browse-banner-button-wrapper {
     display: block;
     margin-top: 5vh;
 }
 
-a.home--browse-banner-button {
+a.home__browse-banner-button {
     width: 40vw;
     min-width: 12rem;
     padding-left: 5vw;
