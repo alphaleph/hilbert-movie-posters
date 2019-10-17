@@ -13,11 +13,11 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
-* [Getting Started](#getting-started-)
+* [Getting Started](#getting-started-seedling)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage-)
-* [Roadmap](#roadmap-)
+* [Usage](#usage-rice_scene)
+* [Roadmap](#roadmap-tent)
 * [License](#license)
 
 
