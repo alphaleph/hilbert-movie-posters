@@ -5,7 +5,7 @@
   <h3 align="center">Hilbert - Movie Posters</h3>
 
   <p align="center">
-    Hilbert: A full-stack (React/Redux-Saga, ASP.NET Core, MS SQL Server) Movie Poster Review App
+    A full-stack (React/Redux-Saga, ASP.NET Core, MS SQL Server) Movie Poster Review App
   </p>
 </p>
 
@@ -13,85 +13,94 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
-* [Getting Started](#getting-started)
+* [Getting Started](#getting-started-seedling)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
+* [Usage](#usage-rice_scene)
+* [Roadmap](#roadmap-tent)
 * [License](#license)
 
+
 ## About the Project
-* ASP.NET Core RESTful service layer with Entity Framework Core ORM and Swagger API Spec
-* SPA-style front-end with Webpack, React, Redux-Saga, Babel, Typescript, Flexbox, Bootstrap, React Router, and Cloudinary CDN
-* MS SQL Server 2017 persistent database running on a Docker container
+__Hilbert__  is the one-stop community for movie poster enthusiasts. 
+* Come by for a casual perusal! :movie_camera: 
+* Leave a fanatic review! :sparkles: 
+* Contribute your own movie poster! :space_invader::city_sunrise::clapper::100:
+
+_This project is made from scratch for demonstration and educational purposes. Please feel free to leave comments for improvements or fork it for your own repurposing!_
+
+_Overall structure_:
+
+* __Server__: ASP.NET Core RESTful service layer with Entity Framework Core ORM and Swagger API Spec
+* __Front-end__: SPA-style front-end with React, Redux-Saga, Webpack, Babel, Typescript, Flexbox, Bootstrap, React Router, and Cloudinary CDN
+* __Database__: MS SQL Server 2017 persistent database running on a Docker container
 
 ### Built With
-* [MS SQL Server](https://www.microsoft.com/en-us/sql-server/default.aspx)
-* [Microsoft Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
-* [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-2.2)
-* [React](https://reactjs.org)
-* [Redux](https://redux.js.org), [Redux-Saga](https://redux-saga.js.org)
-* [Webpack](https://webpack.js.org)
-* [Babel](https://babeljs.io)
-* [Docker](https://www.docker.com)
-* [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is?view=sql-server-2017)
-* [VS Code](https://code.visualstudio.com)
-* [TypeScript](https://www.typescriptlang.org)
-* [Bootstrap](https://getbootstrap.com)
-* [Swagger](https://swagger.io)
-* [Cloudinary](https://cloudinary.com)
+| Server | Front-end | Database | Tooling |
+| ---  | --- | --- | --- |
+[ASP.NET Core MVC][ASP.NET Core MVC URL]|[React][React URL]|[MS SQL Server][SQL Server URL]|[VS Code][VS Code URL]
+[MS EF Core][EF Core URL]|[Redux][Redux URL]|[Docker][Docker URL]|[Azure Data Studio][Data Studio URL]
+| | [Redux-Saga][Redux-Saga URL] | |[Swagger][Swagger URL]|
+| | [Webpack][Webpack URL] | | |
+| | [Babel][Babel URL] | | |
+| | [TypeScript][TypeScript URL] | | |
+| | [SCSS][SCSS URL] | | |
+| | [Bootstrap][Bootstrap URL] | | |
+| | [Cloudinary][Cloudinary URL] | | |
 
-## Getting Started
+
+## Getting Started :seedling:
 
 ### Prerequisites
 
-* [Docker](https://www.docker.com) installed.
-* [MS SQL Server image: 2017-latest](https://hub.docker.com/_/microsoft-mssql-server) in Docker repo.
-```sh
+* [Node](https://nodejs.org/en/) installed.
+* [.NET Core 2.2.0](https://dotnet.microsoft.com/download) installed.
+* [Docker][Docker URL] installed.
+* [MS SQL Server image: 2017-latest][SQL Server Image URL] in Docker repo.
+```bash
+# Retrieve DB image
 docker pull mcr.microsoft.com/mssql/server:2017-latest
 
-#Set up DB server. (Docker Quickstart Terminal can tell you the IP address of your virtual machine)
+# Set up DB server (Docker Quickstart Terminal can tell you the IP address of your virtual machine)
 docker run -e 'ACCEPT_EULA=Y' \
 -e 'SA_PASSWORD=Passw0rd!' \
 -p 1433:1433 \
 --name movie-posters-db \
 -d microsoft/mssql-server-linux:2017-latest
 ```
-* [Node](https://nodejs.org/en/) installed.
-* [.NET Core 2.2.0](https://dotnet.microsoft.com/download) installed.
 
 ### Installation
 
-__*Note: DB ConnectionString is hardcoded in this project. For deployment, consider encrypting in a config file or environment variable.__
+___*Note: DB ConnectionString is hardcoded in this project. For deployment, consider encrypting in a config file or environment variable.___
 1. Clone the repo
-```sh
+```bash
 https://github.com/chaua0927/movie-posters.git
 ```
 2. Install EF Core 2.2.0
-```sh
+```bash
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 2.2.0
 ```
 3. Install NPM packages.
-```sh
+```bash
 npm install
 ```
 
 <!-- USAGE EXAMPLES -->
-## Usage
-```
-#run db container, syntax is for Docker Toolbox
+## Usage :rice_scene:
+```bash
+#To run db container, syntax is for Docker Toolbox
 docker container start movie-posters-db
 
-#run webserver at localhost:5000 and :5001
+#To run webserver at localhost:5000 and :5001
 dotnet run
 
-#stop db container when finished
+#To stop db container when finished
 docker container stop movie-posters-db
 
 ```
 
 <!-- ROADMAP -->
-## Roadmap
+## Roadmap :tent:
 
 ### User Features
 - [x] View List of Movie Posters
@@ -140,3 +149,21 @@ docker container stop movie-posters-db
 Distributed under the MIT License.
 
 All images are intended for non-commercial entertainment and education use only - reviews, fan art, blogs, forums, etc. MoviePosterDB is not endorsed, sponsored or affiliated with any movie studio. All copyrights, trademarks, and logos are owned by their respective owners. This site is for non-profit/educational use only. Using images from this project to make and/or sell reprinted movie posters is strictly forbidden.
+
+[SQL Server URL]: https://www.microsoft.com/en-us/sql-server/default.aspx
+[SQL Server Image URL]: https://hub.docker.com/_/microsoft-mssql-server
+[EF Core URL]: https://docs.microsoft.com/en-us/ef/core/
+[ASP.NET Core MVC URL]: https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-2.2
+[React URL]: https://reactjs.org
+[Redux URL]: https://redux.js.org
+[Redux-Saga URL]: https://redux-saga.js.org
+[Webpack URL]: https://webpack.js.org
+[Babel URL]: https://babeljs.io
+[Docker URL]: https://www.docker.com
+[Data Studio URL]: https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is?view=sql-server-2017
+[VS Code URL]: https://code.visualstudio.com
+[TypeScript URL]: https://www.typescriptlang.org
+[SCSS URL]: https://sass-lang.com/
+[Bootstrap URL]: https://getbootstrap.com
+[Swagger URL]: https://swagger.io
+[Cloudinary URL]: https://cloudinary.com
