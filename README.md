@@ -29,6 +29,10 @@ __Hilbert__  is the one-stop community for movie poster enthusiasts.
 
 _This project is made from scratch for demonstration and educational purposes. Please feel free to leave comments for improvements or fork it for your own repurposing!_
 
+_This project is also_ ___UNDER HEAVY DEVELOPMENT___ _. Frequent changes will occur._
+
+<img src="github/sample.png" alt="Home Page" width="800" height="532">
+
 _Overall structure_:
 
 * __Server__: ASP.NET Core RESTful service layer with Entity Framework Core ORM and Swagger API Spec
@@ -127,6 +131,7 @@ docker container stop movie-posters-db
 - [ ] TS: Fix react-redux connect() typing (potential solution [here](https://gist.github.com/JaSpr/502084fd5989b53760d93148cf67d864))
 - [ ] a11y: Carousel (indicators and auto-scroll control)
 - [ ] a11y: Star Ratings
+- [ ] a11y: Zoom scaling
 
 ### Optimizations
 - [ ] Implement lazy-loading
@@ -148,7 +153,7 @@ docker container stop movie-posters-db
 
 Distributed under the MIT License.
 
-All images are intended for non-commercial entertainment and education use only - reviews, fan art, blogs, forums, etc. MoviePosterDB is not endorsed, sponsored or affiliated with any movie studio. All copyrights, trademarks, and logos are owned by their respective owners. This site is for non-profit/educational use only. Using images from this project to make and/or sell reprinted movie posters is strictly forbidden.
+All images are intended for non-commercial entertainment and education use only - reviews, fan art, blogs, forums, etc. Hilbert is not endorsed, sponsored or affiliated with any movie studio. All copyrights, trademarks, and logos are owned by their respective owners. This site is for non-profit/educational use only. Using images from this project to make and/or sell reprinted movie posters is strictly forbidden.
 
 [SQL Server URL]: https://www.microsoft.com/en-us/sql-server/default.aspx
 [SQL Server Image URL]: https://hub.docker.com/_/microsoft-mssql-server
