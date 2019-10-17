@@ -1,30 +1,73 @@
 openapi: 3.0.0
+
 servers:
   - url: https://localhost:5001/api
+    description: |
+      Local hosting for demos.
 info:
-  description: Get movie posters, movies, and reviews for viewing and usage. Data is currently only available in JSON format. 
+  title: Hilbert Movie Posters API    
   version: "1.0.0"
-  title: Hilbert Movie Posters API
+  description: |
+    <p align="center">    
+      <img src="https://res.cloudinary.com/chaua0927/image/upload/v1570810198/hilbert-poster-images/jsoozfhrsvqlcoejy75t.png" alt="Hilbert Logo"/>
+    </p>
+
+    # Summary
+    
+    `Hilbert` is an open, crowd-sourced community platform for the world of movie posters. Through the Hilbert API, developers can access movie posters, movies, and reviews for viewing and usage.
+    
+    Data is currently only available in JSON format. Please refer to [jsonapi.org](https://jsonapi.org) or [RFC8259](https://tools.ietf.org/html/rfc8259) for specification details.
+    
+    The endpoints are implemented as a RESTful interface. See [RFC7231](https://www.rfc-editor.org/rfc/rfc7231.html).
+    
+    **ATTENTION**: The API is currently under development. Frequent changes may occur.
+
   contact:
     name: Hilbert Movie Posters
     url: https://github.com/chaua0927/hilbert-movie-posters
   license:
-    name: MIT
+    name: MIT License
     url: https://opensource.org/licenses/MIT
 tags:
   - name: movieposters
-    description: Information about movie posters
+    description: |
+      ## Summary
+      
+      __Movie Posters__ are the main objects in Hilbert. 
+      
+      
+      Each entry contains basic information for the poster (e.g.  artist and publishing year), URLs for the publicly hosted image, and a reference to its associated movie.
+      
+      
+      ## **Copyright / Licensing**
+      
+      Copyright and licensing laws apply to images that are uploaded via Hilbert. Only images licensed under and respecting [Creative Commons](https://creativecommons.org/licenses/) terms are allowed.
   - name: movies
-    description: Information about movies
+    description: |
+      ## Summary
+      
+      __Movies__ that are referenced by Hilbert movie posters are available for access as well. 
+      
+      The entries are generated and managed by the server. 
+      
+      
+      Each entry contains basic information for the movie (e.g.  release year and name) and shallow references to its associated movie posters.
   - name: reviews
-    description: Information about reviews
+    description: |
+      ## Summary
+      
+      __Reviews__ are available for viewing access through their movie posters. 
+      
+      These endpoints are specific for editing operations.
 paths:
   /movieposters:
     get:
       tags:
         - movieposters
       operationId: GetMoviePosters
-      summary: Gets matching movie posters (default limit is 20)
+      summary: Gets most recent or, if valid query is provided, matching movie posters
+      description: |
+        __Note__: Query search not yet implemented.
       parameters:
         - in: query
           name: name
@@ -66,6 +109,7 @@ paths:
             type: integer
             format: int32
             minimum: 0
+            default: 30
         - in: query
           name: limit
           required: false
@@ -73,6 +117,7 @@ paths:
           schema:
             type: integer
             format: int32
+            default: 30
             minimum: 1
             maximum: 50
       responses:
@@ -97,7 +142,7 @@ paths:
       summary: Adds a new movie poster
       requestBody:
         required: true
-        description: Movie poster to add
+        description: Movie poster form describing poster to add
         content:
           application/json:
             schema:
@@ -120,7 +165,7 @@ paths:
       - in: path
         name: moviePosterId
         required: true
-        description: Perform action by poster id
+        description: Id of movie poster to retrieve
         schema: 
           type: integer
           format: int32
@@ -196,7 +241,7 @@ paths:
     - in: path
       name: moviePosterId
       required: true
-      description: Access reviews by poster id
+      description: Id of movie poster of review(s)
       schema:
         type: integer
         format: int32
@@ -230,14 +275,14 @@ paths:
     - in: path
       name: moviePosterId
       required: true
-      description: Access reviews by poster id
+      description: Id of movie poster of review
       schema:
         type: integer
         format: int32
     - in: path
       name: reviewId
       required: true
-      description: Perform action by review id
+      description: Id of review
       schema:
         type: integer
         format: int32
@@ -286,6 +331,8 @@ paths:
         - movies
       operationId: GetMovies
       summary: Gets matching movies
+      description: |
+      
       parameters:
         - in: query
           name: name
@@ -419,6 +466,7 @@ components:
           example: 2
     MoviePoster:
       type: object
+      nullable: true
       required:
         - name
         - year
@@ -465,6 +513,7 @@ components:
           items:
             $ref: '#/components/schemas/Review'
     ReviewForm:
+      type: object
       required:
         - name
         - rating
@@ -482,6 +531,8 @@ components:
           maximum: 5
           example: 3
     Review:
+      type: object
+      nullable: true
       required:
         - name
         - rating
@@ -515,6 +566,7 @@ components:
           maxLength: 255
           example: Like tears in rain...
     MovieForm:
+      type: object
       required:
         - name
         - year
@@ -528,6 +580,8 @@ components:
           format: int32
           example: 1984
     Movie:
+      nullable: true
+      type: object
       required:
         - name
         - year
