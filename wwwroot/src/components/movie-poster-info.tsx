@@ -2,11 +2,10 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import StarRatingComponent from 'react-star-rating-component';
 import { MoviePosterInfoProps } from '../types/index';
 
-export const MoviePosterInfo = (props: MoviePosterInfoProps) => {
+export const MoviePosterInfo: React.FunctionComponent<MoviePosterInfoProps> = (props: MoviePosterInfoProps) => {
     return (
         <Container className="movie-poster-view__info-container my-3 px-4 py-2">
             <Row>
