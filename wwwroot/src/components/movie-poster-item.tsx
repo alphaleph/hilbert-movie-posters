@@ -1,6 +1,6 @@
 import React from 'react';
 // import { connect } from 'react-redux';
-import { MoviePosterProps } from '../types/index';
+import { MoviePosterItemProps } from '../types/index';
 // import { addMoviePoster } from '../redux/actions';
 // import { getMoviePosterById } from '../redux/selectors'
 
@@ -37,7 +37,7 @@ import { MoviePosterProps } from '../types/index';
 //     setInput('');
 // }
 
-export const MoviePoster = (props: MoviePosterProps) => {
+export const DisconnectedMoviePosterItem = (props: MoviePosterItemProps) => {
     return (
         <p>{props.moviePosterName} ({props.moviePosterYear})</p>
         // <button onClick={props.handleAddMoviePoster}> </button>
@@ -45,3 +45,4 @@ export const MoviePoster = (props: MoviePosterProps) => {
 }
 
 // export const VisibleMoviePoster = connect(mapStateToProps, mapDispatchToProps)(MoviePoster);
+export const MoviePosterItem = DisconnectedMoviePosterItem;

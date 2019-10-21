@@ -5,7 +5,7 @@ import { IMoviePosterData } from '../types/api_models';
 import { UI_INIT, UI_LOADING, UI_LOADED, UI_ERROR } from '../redux/constants';
 import { selectMoviePosters } from '../redux/selectors';
 import { requestGetMoviePosters } from '../redux/actions';
-import { MoviePoster } from './movie-poster';
+import { MoviePosterItem } from './movie-poster-item';
 import { ListEmpty } from './list-empty';
 import { Error } from './error';
 import { Whoops } from './whoops';
@@ -42,7 +42,7 @@ export const DisconnectedMoviePostersList: React.FunctionComponent<MoviePostersL
                     {
                     props.moviePostersList.map((mp: IMoviePosterData) => (
                         <li key={mp.moviePosterId}>
-                            <MoviePoster 
+                            <MoviePosterItem 
                                 moviePosterName={mp.name} 
                                 moviePosterYear={mp.year} 
                             />
