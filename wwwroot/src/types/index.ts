@@ -69,8 +69,7 @@ export type MoviePosterApiAction = ApiErrorAction |  DataLoadedMoviePosterAction
 export interface AppState {
     entities: {
         moviePosters: MoviePostersEntityState,
-        movies: MoviesEntityState,
-        reviews: ReviewsEntityState
+        movies: MoviesEntityState
     },
     ui: {
         uiGlobals: UiGlobalsState,
