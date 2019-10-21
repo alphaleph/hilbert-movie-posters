@@ -85,10 +85,6 @@ export interface MoviesDict {
     [Key: number]: IMovieData
 }
 
-export interface ReviewsDict {
-    [Key: number]: IReviewData
-}
-
 export interface MoviePostersEntityState {
     byId: MoviePostersDict,
     allIds: number[]
@@ -96,11 +92,6 @@ export interface MoviePostersEntityState {
 
 export interface MoviesEntityState {
     byId: MoviesDict,
-    allIds: number[]
-}
-
-export interface ReviewsEntityState {
-    byId: ReviewsDict,
     allIds: number[]
 }
 
