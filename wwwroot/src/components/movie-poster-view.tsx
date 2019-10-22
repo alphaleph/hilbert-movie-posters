@@ -66,7 +66,7 @@ export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterVie
                         <Breadcrumb.Item active>{mp.name}</Breadcrumb.Item>
                     </Breadcrumb>
                     <h1 className="movie-poster-view__header mt-2 mb-5">{mp.name}</h1>
-                    <Row>
+                    <Row className="pb-2">
                         <Col md={7} className="text-center">
                             <Image fluid alt={mp.name} src={mp.posterImageUrl}/>
                             <MoviePosterInfo rating={mp.rating} ratingCount={mp.ratingCount} artist={mp.artist} year={mp.year}/>
@@ -74,7 +74,7 @@ export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterVie
                         </Col>
                         <Col md={5}>
                             <h2 className="movie-poster-view__header">Reviews</h2>
-                            <ReviewsList/>
+                            <ReviewsList history={props.history} moviePosterId={mp.moviePosterId}/>
                         </Col>
                     </Row>
                     <DeleteModal show={isShowDelete} onHide={hideDeleteModal}/>

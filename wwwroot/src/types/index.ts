@@ -1,5 +1,5 @@
 import * as constants from '../redux/constants';
-import { IMovieData, IMoviePosterData, IReviewData, IApiError } from './api_models';
+import { IMovieData, IMoviePosterData, IReviewData, IApiError, IReviewForm } from './api_models';
 import { MapStateToProps, MapDispatchToProps } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { ModalProps } from 'react-bootstrap';
@@ -117,9 +117,12 @@ export interface IAccessMoviePostersList {
     listState: constants.UI_STATE
 }
 
-export interface MoviePostersListOwnProps { 
-    // imageLoadState: constants.UI_STATE,
+export interface IApiAccess {
     history: history.History
+}
+
+export interface MoviePostersListOwnProps extends IApiAccess { 
+    // imageLoadState: constants.UI_STATE,
 }
 export interface MoviePostersListConnectStateProps extends IAccessMoviePostersList {}
 export interface MoviePostersListConnectDispatchProps {
@@ -130,7 +133,7 @@ export type MoviePostersListProps = MoviePostersListOwnProps & MoviePostersListC
 // export type MoviePostersListDispatchStateMapper = MapDispatchToProps<MoviePostersListConnectDispatchProps, MoviePostersListOwnProps>;
 
 
-export interface MoviePostersCarouselOwnProps extends RouteComponentProps {
+export interface MoviePostersCarouselOwnProps extends IApiAccess {
     // imageLoadState: constants.UI_STATE;
     // carouselBufferSize: number;
 }
@@ -141,9 +144,8 @@ export interface MoviePostersCarouselDispatchProps {
 export type MoviePostersCarouselProps = MoviePostersCarouselOwnProps & MoviePostersCarouselStateProps & MoviePostersCarouselDispatchProps;
 
 
-export interface MoviePostersCardColumnsOwnProps { 
+export interface MoviePostersCardColumnsOwnProps extends IApiAccess { 
     //cardColumnsBufferSize: number,
-    history: history.History
 }
 export interface MoviePostersCardColumnsStateProps extends IAccessMoviePostersList {}
 export interface MoviePostersCardColumnsDispatchProps {
@@ -152,9 +154,8 @@ export interface MoviePostersCardColumnsDispatchProps {
 export type MoviePostersCardColumnsProps = MoviePostersCardColumnsOwnProps & MoviePostersCardColumnsStateProps & MoviePostersCardColumnsDispatchProps;
 
 
-export interface MoviesCardColumnsOwnProps { 
+export interface MoviesCardColumnsOwnProps extends IApiAccess { 
     //cardColumnsBufferSize: number,
-    history: history.History;
 }
 // export interface MoviesCardColumnsStateProps extends IAccessMoviePostersList {}
 // export interface MoviersCardColumnsDispatchProps {
@@ -183,12 +184,36 @@ export interface MoviePosterInfoProps {
 }
 
 
-export interface MoviePosterProps {
+export interface MoviePosterItemProps {
     moviePosterName: string;
     moviePosterYear: number;
 }
 
-export interface ReviewItemOwnProps {
+// TODO: Refactor TS declarations for React-Redux Connect? (see MoviePosterView for error)
+export interface ReviewsListOwnProps extends IApiAccess {
+    moviePosterId: number;
+}
+export interface ReviewsListStateProps extends IAccessMoviePostersList {}
+export interface ReviewsListDispatchProps {}
+export type ReviewsListProps = ReviewsListOwnProps | ReviewsListStateProps | ReviewsListDispatchProps;
+
+
+export interface ReviewItemProps {
+    reviewId: number,
+    name: string,
+    postedDate: Date,
+    rating: number,
+    comment: string,
+    moviePosterId: number
+}
+export interface ReviewFormProps {
+    initEmpty: boolean
+    name?: string,
+    rating?: number,
+    comment?: string,
+    handleCancel?: () => void
+}
+
 export interface DeleteModalProps extends ModalProps {}
 
 export interface UnderConstructionProps {
