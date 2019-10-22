@@ -60,7 +60,29 @@ export interface DeletedMoviePosterAction {
 export type MoviePosterApiAction = ApiErrorAction |  DataLoadedMoviePosterAction | RequestGetMoviePosterAction |
                                     RequestDeleteMoviePosterAction | ApiRecoverAction | DeletedMoviePosterAction | BaseAction;
 
-/* |  | BaseActionRequestGetMoviePostersAction
+
+export interface RequestAddReviewAction {
+    type: constants.REQUEST_ADD_REVIEW
+    payload: IReviewForm
+}
+
+export interface DataLoadedReviewAction {
+    type: constants.DATA_LOADED_REVIEW,
+    payload: IReviewData
+}
+
+export interface RequestDeleteReviewAction {
+    type: constants.REQUEST_DELETE_REVIEW
+}
+
+export interface DeletedReviewAction {
+    type: constants.DELETED_REVIEW
+}
+
+export type ReviewApiAction = ApiErrorAction | DataLoadedReviewAction | RequestAddReviewAction | RequestDeleteReviewAction | 
+                                ApiRecoverAction | DeletedReviewAction | BaseAction;
+
+/*
 
     Redux - Store Slices
 

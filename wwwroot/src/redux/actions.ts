@@ -1,6 +1,6 @@
 import * as types from '../types/index';
 import * as constants from './constants';
-import { IMoviePosterData, IApiError } from '../types/api_models';
+import { IMoviePosterData, IReviewData, IApiError, IReviewForm } from '../types/api_models';
 
 
 export const apiError = (e: IApiError): types.ApiErrorAction => {
@@ -61,3 +61,29 @@ export const deletedMoviePoster = (): types.DeletedMoviePosterAction => {
 //     type: REQUEST_POST_MOVIE_POSTER,
 //     payload: payload
 // }
+
+export const requestAddReview = (data: IReviewForm): types.RequestAddReviewAction => {
+    return {
+        type: constants.REQUEST_ADD_REVIEW,
+        payload: data
+    }
+}
+
+export const dataLoadedReview = (data: IReviewData): types.DataLoadedReviewAction => {
+    return {
+        type: constants.DATA_LOADED_REVIEW,
+        payload: data
+    }
+}
+
+export const requestDeleteReview = (id: number): types.RequestDeleteReviewAction => {
+    return {
+        type: constants.REQUEST_DELETE_REVIEW
+    }
+}
+
+export const deletedReview = (): types.DeletedReviewAction => {
+    return {
+        type: constants.DELETED_REVIEW
+    }
+}
