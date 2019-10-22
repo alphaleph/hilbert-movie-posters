@@ -1,4 +1,4 @@
-import { AppState, BaseAction } from '../../types/index';
+import { AppState, BaseAction, UiGlobalsState, MainMoviePostersListUiState } from '../../types/index';
 import { MoviePostersEntityReducer } from './entities/reducer-movie-posters';
 import { MoviesEntityReducer } from './entities/reducer-movies';
 import { MainMoviePostersListReducer } from './ui/reducer-main-movie-posters-list';
@@ -21,11 +21,15 @@ const initialState = {
             theme: THEME_DEFAULT as THEME_DEFAULT,
             srMode: SR_OFF as SR_OFF,
             animationMode: ANIMATIONS_ON as ANIMATIONS_ON
-        },
+        } as UiGlobalsState,
         mainMoviePostersList: {
             moviePosters: [],
-            state: UI_INIT as UI_INIT
-        }
+            state: UI_INIT as UI_INIT,
+            error: {
+                code: 42,
+                message: ''
+            }
+        } as MainMoviePostersListUiState
     }
 }
 
