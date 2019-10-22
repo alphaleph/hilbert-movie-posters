@@ -1,4 +1,4 @@
-import { REQUEST_GET_MOVIE_POSTER, DATA_LOADED_MOVIE_POSTERS, DELETED_MOVIE_POSTER, DATA_LOADED_MOVIE_POSTER } from '../../constants';
+import { DATA_LOADED_MOVIE_POSTERS, DATA_LOADED_MOVIE_POSTER } from '../../constants';
 import { BaseAction, MoviePostersEntityState, MoviePostersDict } from '../../../types/index';
 import { IMoviePosterData } from '../../../types/api_models';
 

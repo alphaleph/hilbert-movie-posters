@@ -188,6 +188,7 @@ export interface MoviePosterProps {
     moviePosterYear: number;
 }
 
+export interface ReviewItemOwnProps {
 export interface DeleteModalProps extends ModalProps {}
 
 export interface UnderConstructionProps {
