@@ -1,0 +1,22 @@
+@import '../base/globals';
+
+.review-item__container {
+    border-bottom: solid 1px black;
+    padding: .5rem;
+}
+
+.review-item__header-row, .review-item__footer-row {
+    text-align: right;
+}
+
+.review-item__content-row {
+    text-align: left;
+    font-size: 1.1rem;
+    .review-item__reviewer-name {
+        text-align: left;
+    }
+}
+
+.review-item__footer-row {
+    font-size: .9rem;
+}
