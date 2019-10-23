@@ -39,9 +39,9 @@ export const DisconnectedReviewsList: React.FunctionComponent<ReviewsListProps> 
         <Container>
             <Row>
                 <Col>
-                    { reviews.length ? 
-                        <ul>
-                            {
+                    <ul className="reviews-list__main">
+                        { reviews.length ? 
+                            (
                                 reviews.map( (r: IReviewData) => (
                                     <li key={r.reviewId}>
                                         <ReviewItem name={r.name} postedDate={r.postedDate} 
@@ -49,17 +49,19 @@ export const DisconnectedReviewsList: React.FunctionComponent<ReviewsListProps> 
                                                     moviePosterId={r.moviePosterId} reviewId={r.reviewId}/>
                                     </li>
                                 ))
-                            }
+                            )
+                            :
                             <li>
-                                {
-                                  isAddReview ? <ReviewForm initEmpty={true} handleCancel={hideAddReview}/>
-                                              : <Button variant="dark" onClick={showAddReview}>Add A Review</Button>
-                                }
+                                <ListEmpty/>
                             </li>
-                        </ul>
-                        :
-                        <ListEmpty/>
-                    }
+                        }
+                        <li>
+                            {
+                                isAddReview ? <ReviewForm initEmpty={true} handleCancel={hideAddReview}/>
+                                            : <Button variant="dark" onClick={showAddReview}>Add A Review</Button>
+                            }
+                        </li>
+                    </ul>
                 </Col>
             </Row>
         </Container>
