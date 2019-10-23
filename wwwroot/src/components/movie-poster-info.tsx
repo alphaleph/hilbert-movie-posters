@@ -10,7 +10,7 @@ export const MoviePosterInfo: React.FunctionComponent<MoviePosterInfoProps> = (p
         <Container className="movie-poster-view__info-container my-3 px-4 py-2">
             <Row>
                 <Col>
-                    <StarRatingComponent name="Sample rating" value={props.rating}/>
+                    <StarRatingComponent name="Sample rating" value={props.rating} editing={false}/>
                 </Col>
                 <Col>
                     <p className="movie-poster-view__info-text ">Total Ratings: {props.ratingCount}</p>

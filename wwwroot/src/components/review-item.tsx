@@ -39,7 +39,7 @@ export const ReviewItem: React.FunctionComponent<ReviewItemProps> = (props: Revi
                 <Row className="review-item__content-row">
                     <Col>
                         <h3 className="review-item__reviewer-name">{name}</h3>
-                        <StarRatingComponent name="Sample rating" value={rating}/>
+                        <StarRatingComponent name="Sample rating" value={rating} editing={false}/>
                         <p>{comment}</p>
                     </Col>
                 </Row>
