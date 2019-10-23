@@ -121,7 +121,8 @@ docker container stop movie-posters-db
 - [x] Add React Router + React-Router-Bootstrap
 - [x] Migrate to Redux + Redux-Saga
 - [ ] Implement reverse proxy server (Nginx)
-- [x] Implement Swagger API spec
+- [x] Draft Swagger API spec
+- [x] Implement backend API
 - [x] Migrate poster image to Cloudinary CDN
 
 ### Technical Fixes
@@ -142,6 +143,9 @@ docker container stop movie-posters-db
 - [ ] Optimize Redux state slice allocation, via combineReducers?
 - [ ] SPA: More graceful error-handling from server errors?
 - [ ] SCSS: Organize animations as mixins
+- [ ] SPA-Forms: Migrate form validation to Formik/yup?
+- [ ] SPA-Forms: Use message queue to manage submit traffic?
+- [ ] SPA-Forms: Cache unsaved attempts in local storage
 
 ### Dev Environment
 - [x] Set up source maps + HMR
