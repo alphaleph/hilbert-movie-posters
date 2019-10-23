@@ -65,15 +65,15 @@ export const DisconnectedMoviePosterView: React.FunctionComponent<MoviePosterVie
                         </LinkContainer>
                         <Breadcrumb.Item active>{mp.name}</Breadcrumb.Item>
                     </Breadcrumb>
-                    <h1 className="movie-poster-view__header mt-2 mb-5">{mp.name}</h1>
-                    <Row className="pb-2">
+                    <h1 className="movie-poster-view__header-main">{mp.name}</h1>
+                    <Row className="pb-5">
                         <Col md={7} className="text-center">
                             <Image fluid alt={mp.name} src={mp.posterImageUrl}/>
                             <MoviePosterInfo rating={mp.rating} ratingCount={mp.ratingCount} artist={mp.artist} year={mp.year}/>
                             <Button variant="outline-danger" onClick={showDeleteModal}>Delete Movie Poster</Button>
                         </Col>
                         <Col md={5}>
-                            <h2 className="movie-poster-view__header">Reviews</h2>
+                            <h2 className="movie-poster-view__header-review">Reviews</h2>
                             <ReviewsList history={props.history} moviePosterId={mp.moviePosterId}/>
                         </Col>
                     </Row>

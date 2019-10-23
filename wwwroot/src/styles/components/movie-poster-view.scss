@@ -10,9 +10,16 @@
     }
 }
 
-.movie-poster-view__header {
+.movie-poster-view__header-main {
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
     text-decoration: underline;
-    margin-top: 1em;
+}
+
+.movie-poster-view__header-review {
+    margin-top: .9rem;
+    background-color: $background-color--primary;
+    color: $font-color--light;
 }
 
 @include breakpoint($screen-md-min) {
