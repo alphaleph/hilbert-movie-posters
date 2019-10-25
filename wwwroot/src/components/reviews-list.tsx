@@ -58,7 +58,7 @@ export const DisconnectedReviewsList: React.FunctionComponent<ReviewsListProps> 
                         <li>
                             {
                                 isAddReview ? <ReviewForm initEmpty={true} handleCancel={hideAddReview}/>
-                                            : <Button variant="dark" onClick={showAddReview}>Add A Review</Button>
+                                            : <Button className="mt-3" variant="dark" onClick={showAddReview}>Add A Review</Button>
                             }
                         </li>
                     </ul>
