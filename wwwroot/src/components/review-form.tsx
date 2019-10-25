@@ -40,20 +40,22 @@ export const ReviewForm = (props: ReviewFormProps) => {
         event.preventDefault();
         const form = event.currentTarget;
 
-        if (!form.checkValidity()) { 
+        if (form.checkValidity()) {
+            //Dispatch submission
+            //Notify user of submission via Toast?
+            props.handleCancel();
+        } else {
             event.stopPropagation();
         }
         
         setValidated(true);
-        //Dispatch submission
-        //Notify user of submission
     }
 
     return (
-        <Container>
+        <Container className="review-form__container">
             <Row className="review-form__header-row">
                 <Col>
-                    <Button className="mx-2" variant="outline-dark" onClick={props.handleCancel} 
+                    <Button className="mx-2" variant="dark" onClick={props.handleCancel} 
                             aria-label={`Close Review Form`}>
                         X
                     </Button>
@@ -61,11 +63,13 @@ export const ReviewForm = (props: ReviewFormProps) => {
             </Row>
             <Row className="review-form__content-row">
                 <Col>
-                    <p>* indicates required fields</p>
+                    <p className="required-field-note">* indicates required fields</p>
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formName">
-                                <Form.Label>Name*</Form.Label>
+                                <Form.Label className="review-form__label-field">
+                                    Name<span className="required-field">*</span>
+                                </Form.Label>
                                 <Form.Control
                                     required
                                     type="text"
@@ -74,15 +78,24 @@ export const ReviewForm = (props: ReviewFormProps) => {
                                 />
                                 <Form.Control.Feedback type="invalid">Please provide a name.</Form.Control.Feedback>
                             </Form.Group>
+                        </Form.Row>
+                        <Form.Row>
                             <Form.Group as={Col} controlId="formRating">
-                                <Form.Label>Rating*</Form.Label>
+                                <Form.Label className="review-form__label-field">
+                                    Rating<span className="required-field">*</span>
+                                </Form.Label>
+                                <br/>
                                 <StarRatingComponent name="rating" value={rating} onStarClick={handleStarClick}/>
                             </Form.Group>
+                        </Form.Row>
+                        <Form.Row>
                             <Form.Group as={Col} controlId="formComment">
-                                <Form.Label>Comment</Form.Label>
+                                <Form.Label className="review-form__label-field">Comment</Form.Label>
                                 <Form.Control
                                     as="textarea"
+                                    name="input-comment"
                                     rows="3"
+                                    maxLength="255"
                                     defaultValue={defaultComment}
                                 />
                             </Form.Group>

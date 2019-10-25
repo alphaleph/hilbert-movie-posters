@@ -13,9 +13,11 @@ $background-color__interactive--primary: #EAD94C;
 $background-color__interactive--secondary: #E76846;
 $background-color__interactive--tertiary: #FFFFFF;
 $background-color__interactive--quarternary: #D6FFB7;
+$background-color__interactive--editing: #EDEDED;
 $font-color--light: #F7F7F7;
 $font-color--dark: #1A1A1A;
 $font-color__link--dark: #4F7DC2;
+$font-color__required: #D10000;
 $outline-color--link--hover: #4F7DC2;
 
 /*
@@ -23,6 +25,15 @@ $outline-color--link--hover: #4F7DC2;
 Utility
 ########################
 */
+
+.required-field {
+    color: $font-color__required;
+}
+
+.required-field-note {
+    @extend .required-field;
+    text-align: right;
+}
 
 .hidden {
     position: absolute;

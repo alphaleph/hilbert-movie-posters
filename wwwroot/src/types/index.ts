@@ -233,7 +233,7 @@ export interface ReviewFormProps {
     name?: string,
     rating?: number,
     comment?: string,
-    handleCancel?: () => void
+    handleCancel: () => void
 }
 
 export interface DeleteModalProps extends ModalProps {}

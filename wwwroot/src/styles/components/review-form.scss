@@ -1,0 +1,16 @@
+@import '../base/globals';
+
+.review-form__container {
+    border-bottom: 1px solid black;
+    padding: 1rem;
+    background-color:$background-color__interactive--editing;
+}
+
+.review-form__header-row {
+    text-align: right;
+    padding-bottom: .5rem;
+}
+
+.review-form__content-row {
+    text-align: left;
+}
